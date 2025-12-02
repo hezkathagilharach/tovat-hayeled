@@ -406,62 +406,59 @@ body {
       transform: translateY(0);
     }
 
+
+/* Desktop */
 .side-by-side {
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 1200px;
-  margin: 50px 500px 50px auto; /* top 50px, right auto, bottom 50px, left 80px */
-  gap: 20px;
-  box-sizing: border-box;
+  margin: 50px auto; /* horizontally centered */
+  gap: 40px;          /* slightly more space between columns */
   flex-wrap: nowrap;
   min-width: 0;
 }
 
-
-/* critical: allow children to shrink below intrinsic width */
-.side-by-side > * { min-width: 0; }
-
-/* Left column */
+/* Left column: slightly narrower to reduce button width */
 .left-content {
-  flex: 0 1 50%;
+  flex: 0 1 45%;       /* smaller width */
   display: flex;
   flex-direction: column;
   gap: 16px;
   text-align: right;
-  overflow-wrap: break-word; /* allow long words/buttons to wrap */
+  overflow-wrap: break-word;
 }
 
-.side-title {
+.left-content h2 {
   font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+
 }
 
-/* Small descriptive paragraph */
-.left-content .lead {
-  font-size: 1.2rem;
-  color: #444;
-  line-height: 1.6;
-}
-
-/* Buttons */
 .side-buttons {
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;       /* keep buttons side by side */
+  justify-content: flex-start; /* align buttons to the right */
+  margin-top: 16px;        /* spacing under the title/text */
 }
 
-/* Right column (image) */
+.side-buttons .btn {
+  flex: 1 1 auto;      /* let buttons grow/shrink equally */
+  min-width: 0;        /* allow them to shrink smaller than their content */
+  text-align: center;
+   max-width: 200px;
+}
+
+
+/* Right column (image): move closer to left */
 .right-image {
   flex: 0 1 50%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start; /* image starts from left instead of right */
   align-items: center;
   min-width: 0;
 }
 
-/* Image constraints so it won't force wrapping */
 .right-image img {
   max-width: 100%;
   height: auto;
@@ -471,46 +468,50 @@ body {
   max-height: 520px;
 }
 
+
+
+
 /* Reveal (if you use JS to toggle .active or .visible) */
 .reveal-section { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
 .reveal-section.active, .reveal-section.visible { opacity: 1; transform: translateY(0); }
 
-/* Responsive: stack under 900px */
+ 
+/* Mobile: stack columns */
 @media (max-width: 900px) {
   .side-by-side {
     flex-direction: column-reverse;
-    gap: 20px;
-    text-align: center;
+    align-items: center;
+    margin: 50px auto; /* auto left/right centers the whole container */
+    gap: 30px;
+    max-width: 90%;    /* optional: prevents it from stretching too wide */
   }
-  .left-content, .right-image {
-    flex: 1 1 100%;
-    justify-content: center;
-    text-align: center;
-    gap: 0;
-  }
-  .right-image img { width: 100%; max-width: 600px; }
 
-  .side-buttons{
-    display: flex;
-    justify-content: center; /* center buttons */
-    gap: 10px;               /* space between buttons */
-    flex-wrap: nowrap;        /* prevent wrapping */
-    width: 100%;             /* full width of parent */
-    padding: 10px 10px;         /* small horizontal padding */
+
+.left-content,
+.right-image {
+  padding: 0 15px; /* small horizontal padding */
 }
+
+
+  .right-image img {
+    width: 100%;
+    max-width: 400px;              /* prevent image from being too large */
+    height: auto;
+  }
+
+  .side-buttons {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 
   .side-buttons .btn {
-    flex: 1 1 0;             /* grow/shrink equally to fit space */
-    min-width: 0;            /* allow shrinking below content size */
-    text-align: center;
-    padding: 10px 5px;       /* consistent height */
+    flex: 1 1 auto;
+    min-width: 120px;              /* optional: prevent too small buttons */
   }
-
 }
-    
 
-
-/* FAQ Section */ 
+/* FAQ Section   */
 .faq-section { max-width: 900px; margin: 50px auto; 
   padding: 40px; 
   line-height: 1.8; 
