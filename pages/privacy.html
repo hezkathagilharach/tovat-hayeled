@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מדיניות פרטיות - חזקת הגיל הרך = טובת הילד</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <!-- Navbar and Footer placeholders -->
+  <div id="navbar"></div>
+
+  <main class="content" style="max-width: 900px; margin: 120px auto 80px; padding: 20px; line-height: 1.8;">
+    <h1>מדיניות פרטיות ותמצית תנאי שימוש</h1>
+
+    <p>עמותת <strong>חזקת הגיל הרך = טובת הילד</strong> (להלן: “העמותה” או “מפעילת האתר”) רשומה כדין ופועלת תחת רשם העמותות בישראל. מטרת העמותה היא להגן על ילדים ותינוקות תחת הגנתם העיקרית של האם, במיוחד במקרים בהם קיימים חשש לאלימות או נרקיסיזם במשפחה.</p>
+
+    <p>האתר מציג מידע אודות פעילות העמותה, מטרותיה, פרויקטים נוכחיים ועתידיים, ודרכי הצטרפות ותרומה. השימוש באתר מהווה הסכמה לתנאי השימוש ולמדיניות הפרטיות של העמותה, ומחייב את המשתמשים שלא לעשות שימוש באתר למטרות בלתי חוקיות, פוליטיות או מסחריות שאינן מורשות.</p>
+
+    <h2>איסוף מידע אישי</h2>
+    <p>בעת שימוש באתר ייתכן שייאסף מידע אישי כגון שם, כתובת דוא"ל וטלפון — אך זאת רק אם המשתמש מוסר מידע זה מרצונו. המשתמש רשאי לסרב למסור מידע אישי, אולם ייתכן שחלק מהשירותים באתר לא יהיו זמינים לו במקרה כזה.</p>
+
+    <h2>מידע שאינו מזהה אישית</h2>
+    <p>העמותה עשויה לאסוף מידע טכני שאינו מזהה אישית, כגון סוג הדפדפן, מערכת ההפעלה, ספק האינטרנט ונתונים נוספים, לצורך שיפור חוויית המשתמש והתאמת האתר.</p>
+
+    <h2>שימוש בעוגיות (Cookies)</h2>
+    <p>האתר עשוי להשתמש בעוגיות (“cookies”) לשיפור חוויית המשתמש. ניתן להגדיר בדפדפן האם לאפשר או לחסום עוגיות. חסימה עשויה למנוע את פעולתם התקינה של חלק מהאזורים באתר.</p>
+
+    <h2>מטרות השימוש במידע</h2>
+    <ul>
+      <li>שיפור השירותים והתוכן באתר.</li>
+      <li>מענה לפניות משתמשים.</li>
+      <li>שמירה על אבטחת האתר.</li>
+    </ul>
+
+    <h2>אבטחת מידע</h2>
+    <p>העמותה נוקטת באמצעי הגנה מתקדמים כדי למנוע גישה בלתי מורשית, שינוי או חשיפת נתונים אישיים. התקשורת בין האתר למשתמשים מוצפנת בפרוטוקול SSL מאובטח.</p>
+
+    <h2>שיתוף מידע עם צדדים שלישיים</h2>
+    <p>העמותה אינה מוכרת, משכירה או מעבירה מידע אישי לצדדים שלישיים. ייתכן שיימסר מידע סטטיסטי שאינו מזהה אישית לצרכים אנליטיים בלבד.</p>
+
+    <h2>קישורים חיצוניים</h2>
+    <p>באתר עשויים להופיע קישורים לאתרים חיצוניים. לעמותה אין שליטה על תוכנם או על מדיניותם, והיא אינה אחראית לשימוש באתרים אלה.</p>
+
+    <h2>שינויים במדיניות</h2>
+    <p>העמותה רשאית לעדכן מדיניות זו מעת לעת. המשך שימוש באתר לאחר עדכון מהווה הסכמה למדיניות המעודכנת.</p>
+
+    <h2>יצירת קשר</h2>
+    <p>לשאלות או בירורים ניתן לפנות בדוא"ל: <a href="mailto:hezkathagilharach@gmail.com">hezkathagilharach@gmail.com</a></p>
+
+    <p style="margin-top: 40px; font-size: 0.9em; color: gray;">עודכן לאחרונה: נובמבר 2025</p>
+  </main>
+
+  <!-- Accessibility placeholder -->
+<div id="accessibility-placeholder"></div>
+
+  <div id="footer"></div>
+
+  <script>
+    // Load shared navbar and footer dynamically
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("../base/navbar.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("navbar").innerHTML = data);
+
+      fetch("../base/footer.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+
+
+// Load accessibility overlay dynamically
+fetch("../base/accessibility.html")
+  .then(res => res.text())
+  .then(data => {
+    document.body.insertAdjacentHTML("beforeend", data);
+    initAccessibility();
+  })
+  .catch(err => console.error("Accessibility load error:", err));
+
+
+
+
+    });
+  </script>
+ <script src="../script.js"></script>
+
+
+</body>
+</html>

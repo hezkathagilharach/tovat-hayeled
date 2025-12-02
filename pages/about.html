@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אודות - חזקת הגיל הרך = טובת הילד</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ===== About Page Specific Styles ===== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 15px;
+    }
+
+    /* About Header */
+    .about-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 70px auto;
+      gap: 40px;
+      padding: 0 20px;
+      text-align: right;
+    }
+
+    .about-header .text h1 {
+      font-size: 2.5rem;
+      margin-top: 70px;
+      margin-bottom: 30px;
+      border-right: 4px solid #444;
+      padding-right: 10px;
+    }
+
+    .about-header .text p {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    .about-header .image {
+      width: 350px;
+      height: 350px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .about-header .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .about-header .image img.hover-image {
+      opacity: 0;
+    }
+
+    .about-header .image:hover img.hover-image {
+      opacity: 1;
+    }
+
+    /* Hero Buttons */
+    .btn {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    /* Hero Buttons Container */
+    .about-hero-buttons {
+      margin: 30px 30px auto auto;
+      display: flex;
+      justify-content: right;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .about-hero-buttons .primary-btn {
+      background-color: #0a7b83;
+      color: #fff;
+    }
+    .about-hero-buttons .primary-btn:hover {
+      background-color: #08646a;
+      transform: translateY(-3px);
+    }
+    .about-hero-buttons .secondary-btn {
+      background-color: transparent;
+      color: #0a7b83;
+      border: 2px solid #0a7b83;
+    }
+    .about-hero-buttons .secondary-btn:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Video Section */
+    .about-video-section {
+      position: relative;
+      margin: 60px 0;
+    }
+
+    .about-video-section video {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      filter: brightness(50%);
+      border-radius: 12px;
+    }
+
+    .about-video-section .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .about-video-section .overlay .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 150px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .about-video-section .overlay .item:hover {
+      transform: translateY(-5px) scale(1.05);
+      color: #0a7b83;
+    }
+
+    /* Contact Section */
+    .contact-us {
+      max-width: 1100px;
+      margin: 40px auto 60px auto;
+      padding: 20px;
+      text-align: right;
+      border-bottom: 2px solid #eee;
+    }
+
+    .contact-us h2 {
+      font-size: 2.5rem;
+      margin-top: 70px;
+      margin-bottom: 30px;
+      border-right: 4px solid #444;
+      padding-right: 10px;
+    }
+
+    .contact-us p {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    /* Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .about-header {
+        flex-direction: column-reverse;
+        text-align: right;
+        margin: 55px auto;
+        padding: 0 15px;
+        gap: 20px;
+      }
+
+      .about-header .text h1 {
+        margin: 0 0 20px 0;
+        padding-right: 6px;
+      }
+
+      .about-header .text p {
+        font-size: 1.2;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .about-header .image {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 10px;
+      }
+
+      .about-hero-buttons {
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin: 15px 0;
+        padding: 10px;
+      }
+
+      .about-hero-buttons .btn {
+        flex: 1 1 0;
+        min-width: 0;
+        text-align: center;
+        padding: 10px 5px;
+      }
+
+      .about-video-section .overlay {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 10px;
+      }
+
+      .about-video-section .overlay .item i {
+        font-size: 1.5em;
+      }
+
+      .about-video-section .overlay .item h3 {
+        font-size: 1rem;
+      }
+
+      .contact-us h2 {
+        font-size: 2.5rem;
+        margin: 0 0 15px 0;
+        padding-right: 6px;
+      }
+
+      .contact-us p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+  .contact-us a {
+     display: inline-block; 
+        margin-top: 10px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar loaded from style.css -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- About Header -->
+    <section class="about-header reveal">
+      <div class="text">
+        <h1>אודות</h1>
+        <p>עמותת חזקת הגיל הרך = טובת הילד (ע"ר) נוסדה בשנת 2023 על ידי אמהות שורדות אלימות ונרקיסיזם במשפחה, מתוך צורך עמוק להעלות מודעות לפגיעה שנגרמת לתינוקות וילדים בגיל הרך כאשר הם נלקחים מביתם ומורחקים בכפייה מאמם לאורך זמן. 
+        מטרתנו לפעול למען חיזוק ואכיפת חוק חזקת הגיל הרך, בדגש על מצבים של אלימות ונרקיסיזם.</p>
+        <div class="about-hero-buttons">
+          <a href="https://www.atzuma.co.il/momsnotsilent" class="btn primary-btn" target="_blank">חתימה על עצומה</a>
+          <a href="#" class="btn secondary-btn">תרמו לעמותה</a>
+        </div>
+      </div>
+      <div class="image">
+        <img src="../assets/logoAndText.png" alt="Site Logo">
+        <img src="../assets/womenProtest.avif" alt="Hover Image" class="hover-image">
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="about-video-section reveal">
+      <video autoplay muted loop>
+        <source src="../assets/kidsSwinging.mp4" type="video/mp4">
+        הדפדפן שלך אינו תומך בנגן וידאו.
+      </video>
+      <div class="overlay">
+        <div class="item"><i class="fas fa-hand-holding-heart"></i><h3>הגנת ילדים</h3></div>
+        <div class="item"><i class="fas fa-users"></i><h3>קהילה</h3></div>
+        <div class="item"><i class="fas fa-lightbulb"></i><h3>הסברה</h3></div>
+        <div class="item"><i class="fas fa-balance-scale"></i><h3>חקיקה</h3></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-us reveal">
+      <h2>צור קשר</h2>
+      <p>נשמח לשמוע ממך! נענה לפנייתך בהקדם האפשרי.</p>
+      <p>לכל שאלה או פנייה:  <a href="mailto:hezkathagilharach@gmail.com">hezkathagilharach@gmail.com</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- Accessibility placeholder -->
+<div id="accessibility-placeholder"></div>
+
+  <div id="footer"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("../base/navbar.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("navbar").innerHTML = data);
+
+      fetch("../base/footer.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+
+
+   // Load accessibility overlay dynamically
+fetch("../base/accessibility.html")
+  .then(res => res.text())
+  .then(data => {
+    document.body.insertAdjacentHTML("beforeend", data);
+    initAccessibility();
+  })
+  .catch(err => console.error("Accessibility load error:", err));
+
+
+
+
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(r => observer.observe(r));
+
+//popup alert
+   const donateBtn = document.querySelector(".btn.secondary-btn");
+    donateBtn.addEventListener("click", (e) => {
+      e.preventDefault(); // prevents page jumping to "#"
+      alert("תודה על רצונך לתרום! ❤️ חשבון בנק לתרומות יתווסף בקרוב");
+    });
+
+
+
+    });
+
+
+  </script>
+  <script src="../script.js"></script>
+
+</body>
+</html>

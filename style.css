@@ -1,0 +1,985 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  color: #222;
+  background-color: #fff;
+  overflow-x: hidden;
+  /* padding: 20px; */
+}
+
+/* Universal content alignment */
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  direction: ltr;
+}
+
+.logo img {
+  height: 65px;
+  width: auto;
+  display: block;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 1.2rem;
+  color: #444;
+ 
+}
+
+.nav-links li a.active {
+  color: #0a7b83 !important;
+  font-weight: bold;
+  border-bottom: 2px solid #0a7b83;
+}
+
+
+.nav-links a:hover {
+  color: #0a7b83;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+/* Unified Button Base */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Hero Buttons Container */
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .primary-btn {
+  background-color: #0a7b83;
+  color: #fff;
+}
+
+.hero-buttons .primary-btn:hover {
+  background-color: #08646a;
+}
+
+.hero-buttons .secondary-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero-buttons .secondary-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Side Buttons */
+.side-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.side-buttons .primary-btn {
+  background-color: #0a7b83;
+  color: #fff;
+}
+
+.side-buttons .primary-btn:hover {
+  background-color: #08646a;
+}
+
+.side-buttons .secondary-btn {
+  background-color: transparent;
+  color: #0a7b83;
+  border: 2px solid #0a7b83;
+}
+
+.side-buttons .secondary-btn:hover {
+  background-color: rgba(10, 123, 131, 0.1);
+}
+
+.hamburger {
+  display: none;   /* hidden on desktop */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  /* Navbar adjustments */
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .nav-links {
+    flex-direction: column-reverse;
+    position: fixed;
+    top: 20px;
+    right: -100%;
+    width: 180px;
+    background: rgba(255, 255, 255, 0.95);
+    height: 300px;
+    gap: 20px;
+    padding: 20px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    z-index: 14;
+    direction: rtl;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    color: #0a7b83;
+    display: block;
+  }
+
+  /* Hamburger button */
+ .hamburger {
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 15;
+}
+
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #0a7b83;
+    transition: all 0.3s ease;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+
+
+
+/* Quote Section (Hebrew / RTL) */
+.quote-section {
+  padding: 100px 40px;
+  background-color: #f7f9fa;
+  direction: rtl;
+}
+
+.quote-intro {
+  text-align: right;
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 500;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.law-quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #333;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.law-quote span {
+  display: block;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.law-quote a {
+  color: #0a7b83;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.law-quote a:hover {
+  color: #064f53;
+  text-decoration: underline;
+}
+
+/* Reality Section & Law Section Updated for Violence Page Alignment */
+.reality-section,
+.law-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.reality-section h2,
+.law-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-right: 4px solid #444;
+  padding-right: 10px;
+}
+
+.reality-section p,
+.law-section p {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #444;
+}
+
+.law-section blockquote {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  padding: 20px;
+  border-right: 4px solid #666;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.law-section span,
+.reality-section span {
+  font-size: 1rem;
+  color: #555;
+}
+
+.law-section a,
+.reality-section a {
+  font-size: 1.2rem;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.law-section a:hover,
+.reality-section a:hover {
+  text-decoration: underline;
+}
+
+/* Important Text */
+.important-text p {
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #222;
+  text-align: right;
+  margin: 20px auto 20px auto;
+  max-width: 900px;
+}
+
+/* Highlight sentence */
+.highlight-sentence {
+  font-weight: 700;
+  font-size: 2.2rem !important;
+  line-height: 1.8;
+  text-align: right;
+  color: #222;
+  white-space: pre-wrap;
+  
+  /* 🩶 Prevent layout jump */
+  min-height: 3.6em;  /* roughly two text lines */
+  display: block;
+  overflow: hidden;   /* prevents flicker during typing */
+}
+
+/* Red text stays consistent */
+.highlight-sentence .red-text {
+  color: red;
+  font-size: 2.2rem !important;
+}
+
+
+/* Reveal Animations */
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+.side-by-side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 50px 500px 50px auto; /* top 50px, right auto, bottom 50px, left 80px */
+  gap: 20px;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+
+/* critical: allow children to shrink below intrinsic width */
+.side-by-side > * { min-width: 0; }
+
+/* Left column */
+.left-content {
+  flex: 0 1 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: right;
+  overflow-wrap: break-word; /* allow long words/buttons to wrap */
+}
+
+.side-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Small descriptive paragraph */
+.left-content .lead {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.side-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Right column (image) */
+.right-image {
+  flex: 0 1 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Image constraints so it won't force wrapping */
+.right-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 520px;
+}
+
+/* Reveal (if you use JS to toggle .active or .visible) */
+.reveal-section { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
+.reveal-section.active, .reveal-section.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive: stack under 900px */
+@media (max-width: 900px) {
+  .side-by-side {
+    flex-direction: column-reverse;
+    gap: 20px;
+    text-align: center;
+  }
+  .left-content, .right-image {
+    flex: 1 1 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 0;
+  }
+  .right-image img { width: 100%; max-width: 600px; }
+
+  .side-buttons{
+    display: flex;
+    justify-content: center; /* center buttons */
+    gap: 10px;               /* space between buttons */
+    flex-wrap: nowrap;        /* prevent wrapping */
+    width: 100%;             /* full width of parent */
+    padding: 10px 10px;         /* small horizontal padding */
+}
+
+  .side-buttons .btn {
+    flex: 1 1 0;             /* grow/shrink equally to fit space */
+    min-width: 0;            /* allow shrinking below content size */
+    text-align: center;
+    padding: 10px 5px;       /* consistent height */
+  }
+
+}
+    
+
+
+/* FAQ Section */ 
+.faq-section { max-width: 900px; margin: 50px auto; 
+  padding: 40px; 
+  line-height: 1.8; 
+  direction: rtl; /* background: #fff; border-radius: 16px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); */
+ } 
+  
+.faq-section h2 
+{ 
+ font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-right: 4px solid #444;
+  padding-right: 10px;
+} 
+
+.faq-item 
+{ 
+  margin-bottom: 16px; 
+}
+
+.faq-question 
+{ width: 100%; 
+  text-align: right; 
+  background-color: #0a7b83; 
+  color: #fff; 
+  border: none; 
+  padding: 12px 20px; 
+  font-size: 1.1rem; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+} 
+.faq-question:hover 
+{ 
+  background-color: #08646a;
+ }
+  .faq-answer
+   { 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.4s ease, padding 0.4s ease; 
+    padding: 0 10px; background-color: #f5f5f5; 
+    border-radius: 8px; margin-top: 4px; 
+  }
+   .faq-answer p 
+   {
+     font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: #444;
+    }
+     .faq-arrow 
+     {
+       display: inline-block; 
+       width: 12px; height: 12px; 
+       border-left: 2px solid #fff; 
+       border-bottom: 2px solid #fff; 
+       transform: rotate(45deg); /* arrow points down */ 
+       transition: transform 0.3s ease; 
+       margin-left: 10px; /* space from text */ 
+       flex-shrink: 0; 
+      } 
+      .faq-question.active .faq-arrow 
+      { 
+        transform: rotate(-45deg); /* arrow points up when open */ 
+      }
+
+
+
+/* Import Fonts */
+@import url('https://fonts.cdnfonts.com/css/din-neuzeit-grotesk');
+
+/* Numbered Facts Section */
+.numbered-facts-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  direction: rtl;
+  text-align: right;
+}
+
+.numbered-facts-section .facts-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  border-right: 4px solid #444;
+  padding-right: 10px;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.fact-number {
+  font-family: "DIN Neuzeit Grotesk", sans-serif;
+  font-size: 150px;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 180px;
+  text-align: center;
+}
+
+.fact-text {
+  flex: 1;
+  max-width: 700px;
+}
+
+.fact-text p {
+  font-size: 1.4rem;
+  line-height: 2;
+  color: #222;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .fact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .fact-number {
+    font-size: 100px;
+    min-width: auto;
+  }
+
+  .fact-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
+
+
+
+/* Footer */
+.site-footer {
+  background-color: #f8f9f9;
+  color: #111;
+  font-family: 'Heebo', sans-serif;
+  padding-top: 1.5rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+/* --- Right Section: Quick Links --- */
+.footer-links-right {
+  flex: 1 1 250px;
+  text-align: right;
+}
+
+.footer-links-right h4 {
+  font-size: 1.1rem;
+  color: #0a7b83;
+  margin-bottom: 0.6rem;
+}
+
+.footer-links-right ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links-right li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-links-right a {
+  color: #111;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links-right a:hover {
+  color: #0a7b83;
+}
+
+/* --- Left Section: Logo + Social --- */
+.footer-left {
+  flex: 1 1 300px;
+  text-align: left;
+  direction: ltr;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.footer-logo img {
+  width: 350px;
+  height: auto;
+  opacity: 0.95;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-logo img:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-start;
+}
+
+.social-link {
+  color: #111;
+  font-size: 1.4rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: #0a7b83;
+  transform: scale(1.15);
+}
+
+/* --- Divider + Bottom --- */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  margin: 1.2rem 0 0.8rem;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 1rem;
+  box-sizing: border-box;
+}
+
+.footer-note {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: right;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #0a7b83;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #06666b;
+}
+
+/* --- Ultra-Lean Mobile Footer --- */
+@media (max-width: 768px) {
+
+  .site-footer {
+    padding: 5px 10px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: row;     /* logo + icons side by side */
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 10px;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: row;     /* keep them in a row */
+    align-items: center;
+    gap: 80px;
+  }
+
+  .footer-logo img {
+    width: 200px;             /* much smaller */
+    height: auto;
+  
+  }
+
+  .footer-social {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .footer-social a i {
+    font-size: 16px;         /* smaller icons */
+  }
+
+  .footer-divider {
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 5px 0;
+  }
+
+  /* BOTTOM: note + links side by side */
+  .footer-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+    font-size: 0.8rem;
+  }
+
+  .footer-note {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .footer-links a {
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+
+
+/* Ensure sections scroll below fixed navbar */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Accessibility Floating Button */
+.accessibility-btn {
+  position: fixed;
+  top: 50%; /* middle of the screen */
+  left: 0;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: transparent; /* no circle frame */
+  background-color: #0a7b83;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.accessibility-btn img {
+  width: 32px;
+  height: 32px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.accessibility-btn:hover img {
+  filter: grayscale(0%);
+}
+
+/* Accessibility Panel */
+#accessibility-panel {
+  position: fixed;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9998;
+}
+
+#accessibility-panel button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#accessibility-panel button:hover {
+  background: #eee;
+}
+
+
+/* High contrast mode */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Apply high contrast to all elements except accessibility button */
+.high-contrast *:not(#accessibility-btn):not(#accessibility-btn *) {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Highlight links */
+.high-contrast a {
+  color: #0ff !important;
+}
+
+/* Accessibility button: white background, normal icon */
+.high-contrast #accessibility-btn {
+  background-color: #fff !important;
+  border-color: #000 !important; /* optional */
+}
+
+.high-contrast #accessibility-btn img {
+  filter: none !important;
+  content: url("https://cdn-icons-png.flaticon.com/128/1512/1512642.png"); /* same icon */
+}
+
+ /* Grayscale */
+/* Keep html/body unfiltered so fixed elements work */
+html.grayscale,
+body.grayscale {
+  filter: none !important;
+}
+
+/* Apply grayscale to all elements except accessibility UI */
+body.grayscale *:not(#accessibility-btn):not(#accessibility-panel):not(#accessibility-btn *):not(#accessibility-panel *) {
+  filter: grayscale(100%) !important;
+}
+
+body.grayscale .navbar {
+  position: relative !important;
+  z-index: auto;
+}
+
+
+/* Underline links */
+.underline-links a {
+  text-decoration: underline !important;
+}
+
+/* Text scaling: use rem */
+html {
+  font-size: 16px; /* default base */
+}

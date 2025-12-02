@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אלימות במשפחה</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      color: #222;
+      background-color: #fff;
+      text-align: right; 
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      border-right: 4px solid #444;
+      padding-right: 10px;
+    }
+
+    p, li {
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .content-section {
+      max-width: 1000px;
+      margin: 10px auto 40px auto;
+      line-height: 1.8;
+    }
+
+    .horizontal-image {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      display: block;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Image + Statements Section */
+    .image-statements {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 40px;
+      line-height: 1.8;
+      background: #f9f9f9;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .image-statements .image-side {
+      flex: 1 1 45%;
+      text-align: center;
+    }
+
+    .image-statements .image-side img {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-statements .text-side {
+      flex: 1 1 55%;
+      text-align: right;
+    }
+
+    .image-statements h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #222;
+      border-right: 4px solid #444;
+      padding-right: 10px;
+    }
+
+    .image-statements p {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    .image-statements a {
+      color: #0a7b83;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .image-statements a:hover {
+      text-decoration: underline;
+      color: #06666b;
+    }
+
+    /* ✨ Reveal Animation Base */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
+
+/* When visible */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.article-flow {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 50px;
+  margin: 40px auto 0 auto;
+  max-width: 1000px;
+  
+}
+
+
+.article-flow .article-image {
+  flex: 0 0 400px; /* fixed width for the image */
+}
+
+.article-flow .article-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  margin-top: 130px;
+  position: left;
+}
+
+.article-flow .article-text {
+  flex: 1;
+  text-align: right;
+  direction: rtl;
+  
+}
+
+.article-flow .article-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  border-right: 4px solid #444;
+  padding-right: 10px;
+}
+
+.article-flow .article-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+@media (max-width: 900px) {
+
+  h1, h3 {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  .article-flow {
+    display: flex;    
+    flex-direction: column;
+    text-align: right;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  /* Make text appear first */
+  .article-flow .article-text {
+    order: 1 !important;
+  }
+
+  /* Make the image container appear second */
+  .article-flow .article-image {
+    order: 2 !important;
+    margin-top: -120px;
+  }
+
+  .image-statements {
+    flex-direction: column;
+    text-align: right;
+    gap: 20px;
+  }
+
+  .image-statements .text-side {
+    text-align: right;
+  }
+
+  .content-section {
+    text-align: right;
+    padding: 0 20px;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+
+<main>
+  <!-- Main Violence Section -->
+
+
+ <section class="article-flow ">
+  <div class="article-image reveal">
+    <img src="../assets/twoFaces.jpg" alt="Example Image">
+  </div>
+  <div class="article-text reveal">
+
+   <h1>אלימות במשפחה</h1>
+  <p>גברים אלימים משתמשים במשמורת המשותפת ככלי מלחמה, כך הם מקבלים כוח ושליטה תוך ניצול החוק להמשך ההתעללות באם ובילדים. אלימות במשפחה אינה מסתיימת בגירושים – האב האלים ממשיך להיות מתעלל ותוקפני גם לאחר שזכה במשמורת המשותפת בגיל הרך, תוך כדי שהוא מפעיל אלימות דרך אמצעי התקשורת, דרך הילדים, ודרך פניות מרובות לבית המשפט. האלימות המשפטית מוסיפה עומס נפשי וכלכלי כבד ואינה מאפשרת לנשים להשתקם. התנהגות אלימה ומטרידה עלולה לכולל שלל דרכים לפגוע ולהתעלל, כגון: סירוב גט, סירוב לטיפולים עבור הילדים, הברחת רכוש וכספים משותפים, לקיחת הילדים בכפייה, הסתה או מניפולציה של הילדים כנגד ההורה השני, אי תשלום מזונות והוצאות נלוות עבור הילדים, אי עמידה בלוחות זמנים, ועוד ועוד.</p>
+   
+  </div>
+</section>
+
+  <section class="content-section reveal">
+      <p>נשים שסבלו מאלימות ונרקיסיזם במהלך החיים המשותפים מגיעות למעמד הגירושים עם פוסט-טראומה מורכבת, המשפיעה על היכולת התפקודית והקוגניטיבית שלהן בבית ומחוצה לו. בעת גירושים, שורדות האלימות פונות לגופי המדינה בבקשה להגנה וסיוע, אך נתקלים בספקנות מצד פרקליטות בתי המשפט ונציגי הרווחה, אשר מתקשים להאמין למציאות שהן מספרות.</p>
+
+    <p>למרבה הצער, בתי המשפט מרבים להשתמש בקלף הניכור ההורי כאמצעי הרתעה וענישה כלפי נשים, רק בשל התנגדותן למשמורת משותפת בגיל הרך, גם כשברקע קיימת אלימות וחוסר תקשורת. נשים רבות נענשות בסנקציות כספיות והעברת ימי שהות נוספים לאב. לפי בתי המשפט, יש להפריד בין האלימות שמופנית כלפי האם לבין הטיפול שלו בילדיו.</p>
+
+    <p>בתי המשפט נכשלים:</p>
+<ul>
+  <li>להכיר בקשר האנושי העמוק שנוצר בין האם לילדיה מטבע כוח הילודה.</li>
+  <li>לספק חסיון והגנה לאימהות ולילדיהן בשעת חולשה, לרבות בזמן ההיריון ובשנים הראשונות של הילוד.</li>
+  <li>להכיר בנשים המתמודדות עם פוסט-טראומה, ומכים על חטא כאשר לוחצים עליהן לחתום על משמורת משותפת בגיל הרך בניגוד לרצונן, תוך מסע הפחדה ועונשים.</li>
+  <li>לזהות אלימות על כל סוגיה. אוזלת ידם להתמודד עם מקרי אלימות רבים רק מחזקת את הגבר האלים ומשאירה נשים וילדים בתוך מעגל האלימות.</li>
+  <li>לקחת בחשבון מחלות נפש והפרעות אישויות לרבות נרקיסיזם.</li>
+</ul>
+
+    <p><strong>עמותת חזקת הגיל הרך – טובת הילד דורשת שכל מקרה של חשד לאלימות, מכל סוג, יקבל התייחסות מלאה, ושתתבצע אבחנה אצל פסיכיאטר קליני לגילוי הפרעות אישיות ומחלות נפש. ההחלטה השיפוטית לגבי אחריות הורית תינתן על סמך הממצאים, ולא תינתן משמורת משותפת לגבר שימצא תחת הספקטרום ההפרעתי והאלים.</strong></p>
+  </section>
+
+  <!-- Horizontal Image -->
+ <img src="../assets/violence.avif" alt="אלימות במשפחה" class="horizontal-image reveal">
+
+  <!-- Who is the Violent Man Section -->
+  <section class="content-section reveal">
+    <h1>מיהו הגבר האלים?</h1>
+    
+      
+    <p>אלימות במשפחה היא תופעה חברתית נפוצה ונמצאת בכל שכבות האוכלוסייה, ללא הבדל דת, מוצא, השכלה, תפקיד או מעמד סוציואקונומי. הגבר האלים יכול להיות כל אחד – השכן, הקולגה בעבודה, הבוס, החבר, הדוד, הפרופסור ואף השוטר האמון על החוק.</p>
+    
+    <p>אלימות משפחתית מפרקת והורסת את המשפחה כולה. היא אינה מוגבלת למכות בלבד, אלא יכולה להתבטא בצורות שונות, לעיתים אף הרסניות יותר, כגון אלימות נפשית, מילולית, מינית וכלכלית. אלימות היא שימוש בכוח, פיזי או רגשי, על מנת לפגוע באחר.</p>
+    
+    <p>מקור כוחם של גברים אלימים נובע לעיתים מדפוסי התנהגות ומסרים חברתיים שהועברו לאורך דורות בתרבויות ובדתות שונות. דפוסים אלה העניקו לגברים כוח, שליטה ומעמד היררכי גבוה בחברה, בעוד שלנשים הוקצו תפקידים מוגבלים ופחות השפעה.</p>
+    
+    <p>גברים אלימים פועלים מתוך חרדה עמוקה, לעיתים נובעת מחוויות טראומטיות בילדותם. רבים מהם חוו אלימות במשפחתם והם משחזרים אותה במערכות היחסים הבוגרות שלהם. הם מנסים להוריד את רמת החרדה ולהעניק לעצמם תחושת שליטה וביטחון באמצעות השגת רצונם, ובשליטה על האחר.</p>
+    
+    <p>גברים אלה מתקשים לקיים זוגיות בריאה, שבה כל בן זוג הוא יישות נפרדת, עצמאית ואינדיבידואלית. כל מה שאינו תואם את רצונם נתפס כאיום על תחושת הביטחון והערכה העצמית שלהם. כתוצאה מכך, הם מבטלים דעות ורצונות אחרים, מזלזלים בהם או מצמצמים את ערכם. הם מתקשים להכיל תסכולים, להרגיע את עצמם ולהביע רגשות, ובעיקר רגשות הנחשבים בעיניהם חלשים או שליליים, כגון פחד, כאב, עלבון, קנאה או בושה. הרגש הדומיננטי אצלם הוא ה<strong>כעס</strong>, שמכסה על רגשות מוסווים אחרים.</p>
+    
+    <p>גבר אלים פועל באלימות כאשר הוא חש מאוים, חלש וחסר אונים. תחושת הכוח שלו היא מזויפת וקיימת רק כאשר אחרים מצייתים לציפיותיו. בתוכו כלוא ילד מפוחד, שמגיב באופן הגנתי כדי לשרוד, ולעיתים משליך על הזולת את חלקיו הבלתי נסבלים, מאשים את בת זוגו בכל הקשיים ומבקר אותה ללא הרף.</p>
+    
+    <p>גברים אלימים יכחישו את התנהגותם, לא יקחו אחריות על מעשיהם ואף ישליכו את התנהגותם השגויה על הקורבנות שלהם. הם מתקשים לראות את הזולת כשווה, להבין מורכבות, לקבל ולכבד את השונות בין בני אדם. תפיסת עולמם קיצונית, דיכוטומית ושיפוטית, והשחור-לבן שולל מהם יכולת להכיל רגשות קשים.</p>
+    
+    <p>דפוסי השליטה והכוח שלהם מתבטאים בהפחתת הערך של האישה, בזלזול, ביקורת, השפלה, שימוש בילדים כנגדה, מניעת גישה לכסף וחשבונות בנק, דרישה לדיווח ואישור הוצאות, ומעקב אחר פעולותיה בקנאות. פעמים רבות הם מגבילים את חופש הפעולה שלה, בודדים אותה מקשרים חברתיים ומפיצים האשמות על כל התנהלות.</p>
+    
+    <p>גבר אלים שואף לצבור כוח ולהשיג עליונות על בת זוגו, מתוך צורך בהישרדות פנימית: להיות בצד המנצח והשולט, אחרת הוא חש שהוא נשלט ונבלע. תחושת הכוח והשליטה היא כלי הישרדות עבורו – כל האמצעים מקדשים את המטרה שלו. </p>
+ 
+
+  </section>
+
+  <!-- Image + Statements Section -->
+     <section class="image-statements reveal">
+    <div class="image-side">
+      <img src="/tovat-hayeled/assets/oldLady.avif" alt="אישה רעה" />
+    </div>
+    <div class="text-side" dir="rtl">
+      <h3>חזקת הגיל הרך מגנה על הילד</h3>
+      <blockquote class="law-quote">
+        <p>בהעדר החזקה, נשים וילדים חשופים לאלימות ואין להם כל הגנה או יכולת לצאת ממעגל האלימות אליו הם נשאבים מדי יום.</p>
+        <p>כל עוד אין הכרה משפטית באלימות על כל צורותיה, חוק חזקת הגיל הרך חייב להתקיים.</p>
+      </blockquote>
+    </div>
+  </section>
+
+
+      <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+
+</main>
+
+
+<!-- Accessibility placeholder -->
+<div id="accessibility-placeholder"></div>
+
+  <div id="footer"></div>
+
+  <script>
+
+   // Fetch navbar and footer
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("../base/navbar.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("navbar").innerHTML = data;
+
+    
+        });
+
+      fetch("../base/footer.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+  
+
+
+      // Load accessibility overlay dynamically
+fetch("../base/accessibility.html")
+  .then(res => res.text())
+  .then(data => {
+    document.body.insertAdjacentHTML("beforeend", data);
+    initAccessibility();
+  })
+  .catch(err => console.error("Accessibility load error:", err));
+
+
+
+
+  // Reveal animation
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+ });
+
+</script>
+
+ <script src="../script.js"></script>
+
+
+
+</body>
+</html>
