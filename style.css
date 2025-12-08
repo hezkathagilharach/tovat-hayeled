@@ -228,7 +228,7 @@ body {
 }
 
   .hamburger div {
-    width: 25px;
+    width: 30px;
     height: 3px;
     background-color: #0a7b83;
     transition: all 0.3s ease;
@@ -249,7 +249,7 @@ body {
 
   /* Hero Title: wider and responsive */
   .hero-title {
-    font-size: 8vw;          /* scales with viewport width */
+    font-size: 10vw;          /* scales with viewport width */
     font-weight: 700;
     line-height: 1.2;
     width: 100%;
@@ -259,7 +259,7 @@ body {
 
   /* Hero Subtitle: responsive */
   .hero-subtitle {
-    font-size: 4vw;          /* scales with viewport */
+    font-size: 6vw;          /* scales with viewport */
     margin-top: 10px;
     line-height: 1.4;
     width: 100%;
@@ -276,7 +276,6 @@ body {
     margin-top: 25px;
   }
 }
-
 
 
 

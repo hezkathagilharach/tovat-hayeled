@@ -23,20 +23,30 @@
 
 <!-- Header with Video -->
 <header id="home" class="hero-section reveal-section">
-  <video autoplay muted loop playsinline class="background-video">
+
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    class="background-video"
+    poster="assets/girlSwingingImage.png"
+    preload="none">
+    
     <source src="assets/girlSwinging.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
+
   <div class="hero-overlay">
     <h1 class="hero-title">חזקת הגיל הרך = טובת הילד</h1>
     <p class="hero-subtitle">בדגש על אלימות ונרקיסיזם</p>
     <div class="hero-buttons">
       <a href="#law" class="btn primary-btn">קרא/י את החוק</a>
       <a href="./pages/about.html" class="btn secondary-btn">מי אנחנו</a>
-      <!-- <a href="mailto:hezkathagilharach@gmail.com" class="btn secondary-btn">יצירת קשר</a> -->
-
     </div>
   </div>
+
+
 </header>
 
 <!-- Law Section -->
@@ -397,6 +407,15 @@ document.addEventListener("click", function(e) {
     alert("תודה על רצונך לתרום! ❤️ חשבון בנק לתרומות יתווסף בקרוב");
   }
 });
+
+
+// lazy load the video AFTER page renders
+  const video = document.querySelector(".background-video");
+  if (video) {
+    video.preload = "auto";
+    video.load();
+    video.play().catch(() => {});
+  }
 
 
 });
