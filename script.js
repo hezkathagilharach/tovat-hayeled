@@ -32,52 +32,58 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   revealElements.forEach(el => observer.observe(el));
-
+});
 
   //typing ...
 function typeWriter(container) {
-  container.dataset.typed = true; // prevent re-triggering
+  // Prevent re-triggering
+  if (container.dataset.typed) return;
+  container.dataset.typed = true;
 
-  const sentence1 = "וללא הבחנה בין הורה נורמטיבי להורה אלים ונרקיסיסט.";
-  const sentence2 = " האם זוהי טובת הילד?";
+  // Sentences
+  const sentence1 = "וללא הבחנה בין הורה נורמטיבי להורה אלים ונרקיסיסט,";
+  const sentence2 = "האם זוהי טובת הילד?";
 
-  container.textContent = ""; // clear container
-  let i = 0;
+  // Clear the container
+  container.textContent = "";
+
+  let i = 0;                     // Character index
   let currentSentence = sentence1;
-  let redSpan;
+  let redSpan;                    // For highlighted second sentence
 
   const interval = setInterval(() => {
     if (currentSentence === sentence1) {
-      // typing sentence 1
+      // Typing first sentence
       if (i < sentence1.length) {
         container.textContent += sentence1.charAt(i);
         i++;
       } else {
-        // finish sentence 1, insert line break and span for sentence 2
+        // Finished first sentence
         const br = document.createElement("br");
         container.appendChild(br);
 
+        // Prepare red span for second sentence
         redSpan = document.createElement("span");
         redSpan.classList.add("red-text");
         container.appendChild(redSpan);
 
+        // Switch to second sentence
         currentSentence = sentence2;
         i = 0;
       }
     } else if (currentSentence === sentence2) {
-      // typing sentence 2 into red span
+      // Typing second sentence into red span
       if (i < sentence2.length) {
         redSpan.textContent += sentence2.charAt(i);
         i++;
       } else {
-        clearInterval(interval); // finished typing
+        // Finished typing
+        clearInterval(interval);
       }
     }
   }, 40);
 }
 
-
-});
 
 
 // FAQ expand/collapse
@@ -144,8 +150,6 @@ document.addEventListener("click", function (e) {
     navLinks.classList.remove("active");
   }
 });
-
-
 
 
 

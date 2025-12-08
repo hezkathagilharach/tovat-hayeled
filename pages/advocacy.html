@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>מידע והסברה</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body {
       font-family: 'Helvetica Neue', sans-serif;
@@ -215,16 +217,16 @@
 <body>
   <div id="navbar"></div>
   <main>
-    <h1>מרכז מידע והסברה</h1>
+    <h1 class="reveal">מרכז מידע והסברה</h1>
 
     <!-- Search -->
-    <div class="search-container">
+    <div class="search-container reveal">
       <input type="text" id="searchInput" placeholder="חפש לפי כותרת או תוכן...">
       <button onclick="searchInput()">חפש</button>
     </div>
 
     <!-- Tabs -->
-    <div class="tabs">
+    <div class="tabs reveal">
       <button class="active" data-type="all" onclick="filterTabs(event)">הכל</button>
       <button data-type="article" onclick="filterTabs(event)">מאמרים</button>
       <button data-type="research" onclick="filterTabs(event)">מחקרים</button>
@@ -234,9 +236,9 @@
 
     <!-- CARD GRID -->
     <div class="card-grid cards-container">
-      <!-- Example card -->
+      <!-- Research card -->
       <a href="https://e5f1ea38-86c8-4d0e-b478-d1033d667b04.filesusr.com/ugd/5fc83c_0b1f3d8d1c494b689726c02fa6f92da7.pdf" target="_blank" class="media-card-link">
-        <div class="media-card research">
+        <div class="media-card research reveal">
           <div class="media-container">
             <img src="/tovat-hayeled/advocacyAssets/dafna.jpg" alt="research">
             <div class="card-label research">מחקר</div>
