@@ -1,3 +1,4 @@
+
 /* Reset */
 * {
   margin: 0;
@@ -100,13 +101,13 @@ body {
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  margin-top: 10px;
+  font-size: 1.8rem;
+  margin-top: 20px;
 }
 
 /* Unified Button Base */
@@ -127,6 +128,7 @@ body {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  font-size: 1.2rem;
 }
 
 .hero-buttons .primary-btn {
@@ -153,6 +155,7 @@ body {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  font-size: 1.2rem;
 }
 
 .side-buttons .primary-btn {
@@ -597,7 +600,7 @@ body {
   color: #fff; 
   border: none; 
   padding: 12px 20px; 
-  font-size: 1.1rem; 
+  font-size: 1.4rem; 
   border-radius: 8px; 
   cursor: pointer; 
   transition: background-color 0.3s; 
@@ -616,7 +619,7 @@ body {
   }
    .faq-answer p 
    {
-     font-size: 1.2rem;
+     font-size: 1.4rem;
     margin-bottom: 16px;
     color: #444;
     }
@@ -638,45 +641,55 @@ body {
 
       /* FAQ Section Mobile */
 @media (max-width: 900px) {
-  .faq-section {
-    max-width: 95%;          /* a bit narrower than desktop */
-    margin: 50px auto;       /* vertical spacing */
-    padding: 0 15px;         /* horizontal padding for small screens */
-    text-align: right;       /* maintain RTL alignment */
-  }
 
-  .faq-section h2 {
-    font-size: 2rem;         /* slightly smaller */
-    border-right-width: 3px; /* scale border slightly */
-    padding-right: 8px;
-    margin-bottom: 15px;
+  .faq-section {
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 0 12px;
+    text-align: right;
   }
 
   .faq-item {
-    margin-bottom: 12px;     /* smaller spacing between items */
+    margin-bottom: 14px;
   }
 
   .faq-question {
-    font-size: 1rem;         /* smaller font */
-    padding: 10px 16px;
-  }
-
-  .faq-answer {
-    padding: 8px 10px;       /* smaller padding */
-    font-size: 1rem;
-  }
-
-  .faq-answer p {
-    font-size: 1rem;
-    margin-bottom: 12px;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
   }
 
   .faq-arrow {
-    width: 10px;
-    height: 10px;
-    margin-left: 8px;
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    transform-origin: center;
+  }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;     /* hides any peeking content */
+  padding: 0 12px;      /* remove vertical padding */
+  transition: max-height 0.4s ease;
+}
+
+/* When open – add vertical padding only when expanded */
+.faq-answer.open {
+  padding: 12px;
+}
+
+
+  .faq-answer p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
   }
 }
+
+
+
 
 
 

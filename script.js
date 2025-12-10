@@ -87,43 +87,21 @@ function typeWriter(container) {
 
 
 // FAQ expand/collapse
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const answer = btn.nextElementSibling;
-    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
-
-    // Collapse all answers first
-    document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = null);
-
-    if (!isOpen) {
-      answer.style.maxHeight = answer.scrollHeight + "px";
-    }
-  });
-});
-
-// FAQ expand/collapse with arrow rotation
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const answer = btn.nextElementSibling;
-    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
-
-    // Collapse all answers and remove active class from buttons
-    document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = null);
-    document.querySelectorAll('.faq-question').forEach(b => b.classList.remove('active'));
-
-    if (!isOpen) {
-      answer.style.maxHeight = answer.scrollHeight + "px";
-      btn.classList.add('active'); // rotate arrow
-    }
-  });
-});
-// FAQ expand/collapse with arrow rotation
+// Clean FAQ toggle with arrow rotation
 document.querySelectorAll('.faq-question').forEach(btn => {
   btn.addEventListener('click', () => {
     const answer = btn.nextElementSibling;
     const isOpen = btn.classList.contains('active');
 
-    // Toggle current FAQ item
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-question').forEach(b => {
+      if (b !== btn) b.classList.remove('active');
+    });
+    document.querySelectorAll('.faq-answer').forEach(a => {
+      if (a !== answer) a.style.maxHeight = null;
+    });
+
+    // Toggle current item
     if (isOpen) {
       btn.classList.remove('active');
       answer.style.maxHeight = null;
