@@ -238,15 +238,17 @@ body {
   }
 
   /* Hero Section */
-  /* Hero Section Height */
   .hero-section {
     height: 70vh; /* keep it proportional on mobile */
   }
 
   /* Hero Overlay: center content */
   .hero-overlay {
+    top: auto;
+  bottom: 10%;
+  transform: translateX(-50%);
     text-align: center;
-    padding: 0 10px; /* small horizontal padding */
+   
     max-width: 100%;
   }
 
