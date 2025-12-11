@@ -122,6 +122,18 @@ body {
   font-size: 1.2rem;
 }
 
+.hero-buttons .btn {
+  border-radius: 50px;        /* stays round even with long text */
+  padding: 0.8em 2em;         /* spacing */
+  display: inline-block;
+  text-align: center;
+  width: 200px;
+}
+
+.hero-buttons a {
+  border-radius: 50px !important;
+}
+
 .hero-buttons .primary-btn {
   background-color: #0a7b83;
   color: #fff;
@@ -144,17 +156,6 @@ body {
 }
 
 /* Side Buttons */
-.btn {
-  display: inline-block;
-  padding: 0.8em 2em; 
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-
 .side-buttons {
   margin-top: 30px;
   display: flex;
@@ -162,6 +163,20 @@ body {
   gap: 20px;
   flex-wrap: wrap;
   font-size: 1.2rem;
+}
+
+.side-buttons .btn {       
+  border-radius: 50px;  
+  padding: 0.8em 2em; 
+  display: inline-block;
+  text-align: center;
+  width: 200px;
+}
+
+.btn {
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .side-buttons .primary-btn {
@@ -289,10 +304,13 @@ body {
   align-items: center;      /* horizontal centering */
   margin-top: 25px;
 }
-.hero-buttons a {   /* or .hero-buttons button */
+.hero-buttons a  {   /* or .hero-buttons button */
+  flex: 1 1 0;
+  min-width: 0;
   width: 100%;
   max-width: 200px;   
   text-align: center;
+   padding: 10px 5px;
 }
 
 }
@@ -476,7 +494,7 @@ body {
 
 
 
-/* Desktop */
+
 /* Desktop */
 .side-by-side {
   display: flex;
@@ -567,17 +585,19 @@ body {
     height: auto;
   }
 
-  .side-buttons {
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+.side-buttons {
+  display: flex;          /* needed for justify-content and gap */
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
-  .side-buttons .btn {
-    flex: 1 1 auto;
-    min-width: 120px;              /* optional: prevent too small buttons */
-    max-width: 220px;
-  }
+.side-buttons .btn {
+  width: 100%;            /* same as hero buttons */
+  max-width: 200px;       /* keep same size as hero buttons */
+  min-width: 140px;       /* optional for tap targets */
+  text-align: center;
+}
 }
 
 /* FAQ Section   */
