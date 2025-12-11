@@ -69,24 +69,34 @@
     }
 
     /* Hero Buttons */
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
+   /* UNIVERSAL BUTTON STYLE */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12px 28px;
+  width: 200px;            /* consistent button size */
+  max-width: 100%;
+  
+  border-radius: 50px;     /* always round */
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
     /* Hero Buttons Container */
-    .about-hero-buttons {
-      margin: 30px 30px auto auto;
-      display: flex;
-      justify-content: right;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 1.2rem;
-    }
+  .about-hero-buttons {
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 30px 30px auto auto;
+}
+
     .about-hero-buttons .primary-btn {
       background-color: #0a7b83;
       color: #fff;
@@ -211,20 +221,15 @@
       }
 
       .about-hero-buttons {
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: nowrap;
-        width: 100%;
-        margin: 15px 0;
-        padding: 10px;
-      }
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 
-      .about-hero-buttons .btn {
-        flex: 1 1 0;
-        min-width: 0;
-        text-align: center;
-        padding: 10px 5px;
-      }
+  .btn {
+    width: 100%;
+    max-width: 200px;    /* consistent, never square */
+  }
 
       .about-video-section .overlay {
         flex-direction: column;

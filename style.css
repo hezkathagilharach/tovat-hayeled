@@ -103,12 +103,14 @@ body {
 .hero-title {
   font-size: 3.5rem;
   font-weight: 700;
-  min-width: 300px;
+  min-width: 250px;
 }
 
 .hero-subtitle {
   font-size: 1.8rem;
+  font-weight: 250;
   margin-top: 20px;
+  white-space: nowrap;
 }
 
 
@@ -177,6 +179,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .side-buttons .primary-btn {
