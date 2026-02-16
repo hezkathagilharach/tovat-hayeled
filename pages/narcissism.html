@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>נרקיסיזם</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      color: #222;
+      background-color: #fff;
+      text-align: right;
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+
+    .content-section {
+      max-width: 1000px;
+      margin: 40px auto 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-top: 100px; /* More top margin */
+      margin-bottom: 30px;
+      border-right: 4px solid #444;
+      padding-right: 15px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-position: outside;
+      padding-right: 40px; /* Proper RTL spacing */
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+
+    li {
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      h1{
+        margin-top: 60px;
+      }
+      .content-section {
+        padding: 0 15px;
+      }
+    }
+
+
+    .website-thumbnails {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: right;
+}
+
+.website-thumbnails h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  border-right: 4px solid #444;
+  padding-right: 10px;
+}
+
+.thumbnails-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* for RTL, items start from the right */
+}
+
+.thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #222;
+  width: 300px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 10px;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.thumb-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.thumb-text .title {
+  font-weight: 700;
+  font-size: 1rem;
+  display: block;
+}
+
+.thumb-text .desc {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #555;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Hover effect */
+.thumbnail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 700px) {
+  .thumbnails-container {
+    justify-content: center;
+  }
+  .thumbnail {
+    width: 45%;
+  }
+}
+
+@media (max-width: 450px) {
+  .thumbnail {
+    width: 100%;
+  }
+}
+  </style>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<main>
+
+  <section class="content-section reveal">
+    <h1>מה זה נרקיסיזם?</h1>
+    <p>
+      נרקיסיזם (Narcissism) הוא דפוס אישיות המאופיין בהתמקדות עצמית, ראייה צרה וממוקדת על צרכים אישיים כערך עליון, וקושי באמפתיה כלפי רגשות וצרכים של אחרים.
+      במינון מסוים נרקיסיזם היא תכונה טבעית ואף בריאה – הקשורה לביטחון עצמי וליכולת להציב גבולות.
+      במינון גבוה, זה עלול להתבטא בדפוסי התנהגות פוגעניים, אלימים, יחסים בין-אישיים רעילים, ולעיתים אף להוות חלק ממה שמוגדר כהפרעת אישיות נרקיסיסטית (Narcissistic Personality Disorder).
+    </p>
+
+    <p><strong>הפרעת אישיות נרקיסיסטית כוללת לרבות:</strong></p>
+    <ul>
+      <li>תחושת עליונות מתמדת, צורך עז בשליטה, והפחתת הערך של הקורבן</li>
+      <li>נקמנות, עוינות, ותוקפנות</li>
+      <li>רגישות קיצונית לביקורת</li>
+      <li>חוסר באמפתיה</li>
+      <li>ניצול מערכות יחסים לצרכים אישיים</li>
+      <li>נוכלות, מניפולציות, וגזלייטינג</li>
+      <li>ראיית מציאות מעוותת והשלכה על הקורבן</li>
+      <li>נטייה לעצבים וליצירת כאוס, ראייה שלילית גם כשאין סיבה אמיתית לכך</li>
+      <li>נטייה לזלזל או להקטין אחרים</li>
+      <li>מפיק הנאה וסיפוק מהסבל של הקורבן</li>
+    </ul>
+</section>
+ <section class="article-flow ">
+  <div class="article-image reveal">
+    <img src="../assets/narcissist.jpg" alt="Example Image">
+  </div>
+  <div class="article-text reveal">
+
+<p>חשוב לציין כי דפוסים אלה מתקיימים לרוב במסגרת מערכת היחסים שבין הנרקיסיסט לבין הקורבן שלו, בעוד שמחוץ למערכת היחסים הזאת הוא עשוי להפגין נורמטיביות, תפקוד גבוה ואף טוב לב כלפי אחרים.</p>
+<p>במקרים מסוימים, הנרקיסיסט יהיה פעיל בתחום מוסרי/חברתי כצורך בהכרה על טוב לב ואלטרואיזם.
+תפיסה עצמית כ”הכי מוסרי”, “הכי נתינה”. עשיית טוב שמלווה בצורך בולט בהערכה.</p>
+<p>לכן, התופעה מאוד מתעתעת עד כדי בלתי נתפסת בעיני הסובבים.</p>
+<p>במצבים שבהם אותו אדם מחזיק בעמדת כוח או סמכות, היקף הנפגעים עלול לגדול בהתאם להיקף ההשפעה והשליטה שמקנה לו תפקידו.</p>
+
+</div>
+</section>
+
+<section class="content-section reveal">
+    <h1>סוגי נרקיסיזם</h1>
+
+   <p> במחקר נהוג להבחין בין שני סוגים מרכזיים של נרקיסיסטים . להלן מאפיינים נוספים שמתארים כל סוג:</p>
+    
+
+    <p><strong>1. נרקיסיזם גרנדיוזי (Grandiose Narcissism)</strong></p>
+    <ul>
+      <li>תחושת עליונות וביטחון עצמי מופרז</li>
+      <li>שימוש באחרים להשגת כוח ושליטה</li>
+      <li>צורך בהערצה ובהכרה</li>
+      <li>כריזמה ודומיננטיות חברתית</li>
+      <li>צורך תמיד להיות במרכז תשומת הלב</li>
+      <li>תחרותיות, הישגיות, שאפתנות לתפקיד עם כוח</li>
+      
+    </ul>
+
+   <p><strong>2. נרקיסיזם סמוי (Covert Narcissism)</strong></p>
+    <ul>
+      <li>תחושת נחיתות וקיפוח</li>
+      <li>רגישות גבוהה לביקורת</li>
+      <li>ערך עצמי נמוך ותחושת מאויימות</li>
+      <li>נטייה להיעלבות ולהסתגרות</li>
+      <li>קנאה והשוואתיות</li>
+      <li>מאפיינים אנטי-חברתיים</li>
+    </ul>
+
+  </section>
+
+<section class="website-thumbnails">
+  <h2>למידע נוסף</h2>
+  <div class="thumbnails-container">
+
+    <a href="https://www.2standup.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/" target="_blank" class="thumbnail">
+      <img src="../assets/iritVaich.jpeg" alt="אירית וייך">
+      <div class="thumb-text">
+        <span class="title">אירית וייך</span>
+        <span class="desc">מאמנת מנטלית ומורת-דרך ליחסים ולזוגיות</span>
+      </div>
+    </a>
+
+    <a href="https://liatshachar.com/" target="_blank" class="thumbnail">
+      <img src="../assets/narcissismCenter.jpeg" alt="ליאת שחר">
+      <div class="thumb-text">
+        <span class="title">ליאת שחר</span>
+        <span class="desc">המרכז לנרקיסיזם בישראל</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+   
+  </div>
+</section>
+
+</main>
+
+<div id="footer"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Navbar & Footer
+  fetch("../base/navbar.html").then(res => res.text()).then(data => document.getElementById("navbar").innerHTML = data);
+  fetch("../base/footer.html").then(res => res.text()).then(data => document.getElementById("footer").innerHTML = data);
+
+  // Accessibility overlay
+  fetch("../base/accessibility.html")
+    .then(res => res.text())
+    .then(data => {
+      document.body.insertAdjacentHTML("beforeend", data);
+      if(typeof initAccessibility === "function") initAccessibility();
+    });
+
+  // Reveal animation
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.1});
+  reveals.forEach(r => observer.observe(r));
+});
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>
