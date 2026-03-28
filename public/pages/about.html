@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אודות - חזקת הגיל הרך = טובת הילד</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ===== About Page Specific Styles ===== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 15px;
+    }
+
+    /* About Header */
+    .about-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 50px auto;
+      gap: 40px;
+      padding: 0 20px;
+      text-align: right;
+    }
+
+    .about-header .text h1 {
+      font-size: 2.5rem;
+      margin-top: 70px;
+      margin-bottom: 30px;
+      border-right: 4px solid #444;
+      padding-right: 10px;
+      line-height: 1.8;
+    }
+
+    .about-header .text p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .about-header .image {
+      width: 350px;
+      height: 350px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .about-header .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .about-header .image img.hover-image {
+      opacity: 0;
+    }
+
+    .about-header .image:hover img.hover-image {
+      opacity: 1;
+    }
+
+    /* Hero Buttons */
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 28px;
+      width: 200px;
+      max-width: 100%;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .about-hero-buttons {
+      display: flex;
+      justify-content: right;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 50px 20px auto auto;
+    }
+
+    .about-hero-buttons .primary-btn {
+      background-color: #0a7b83;
+      color: #fff;
+    }
+    .about-hero-buttons .primary-btn:hover {
+      background-color: #08646a;
+      transform: translateY(-3px);
+    }
+    .about-hero-buttons .secondary-btn {
+      background-color: transparent;
+      color: #0a7b83;
+      border: 2px solid #0a7b83;
+    }
+    .about-hero-buttons .secondary-btn:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Video Section */
+    .about-video-section {
+      position: relative;
+      margin: 60px 0;
+    }
+
+    .about-video-section video {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      filter: brightness(50%);
+      border-radius: 12px;
+    }
+
+    .about-video-section .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .about-video-section .overlay .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 150px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .about-video-section .overlay .item:hover {
+      transform: translateY(-5px) scale(1.05);
+      color: #0a7b83;
+    }
+
+    /* Contact Section */
+    .contact-us {
+      max-width: 1100px;
+      margin: 40px auto 60px auto;
+      padding: 20px;
+      text-align: right;
+      border-bottom: 2px solid #eee;
+    }
+
+    .contact-us h2 {
+      font-size: 2.5rem;
+      margin-top: 70px;
+      margin-bottom: 30px;
+      border-right: 4px solid #444;
+      padding-right: 10px;
+      line-height: 1.8;
+    }
+
+    .contact-us p {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    /* Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Better World Section */
+    .better-world {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+      text-align: right;
+    }
+
+    .better-world h1 {
+      font-size: 2.5rem;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      border-right: 4px solid #444;
+      padding-right: 10px;
+      line-height: 1.8;
+    }
+
+    .better-world p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    .better-world ul {
+      padding-right: 35px;
+      margin: 0;
+    }
+
+    .better-world li {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-header {
+        flex-direction: column-reverse;
+        text-align: right;
+        margin: 55px auto;
+        padding: 0 15px;
+        gap: 20px;
+      }
+
+      .about-header .text h1 {
+        margin: 0 0 20px 0;
+        padding-right: 6px;
+      }
+
+      .about-header .text p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .about-header .image {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 10px;
+      }
+
+      .about-hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 200px;
+      }
+
+      .about-video-section .overlay {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 10px;
+      }
+
+      .about-video-section .overlay .item i {
+        font-size: 1.5em;
+      }
+
+      .about-video-section .overlay .item h3 {
+        font-size: 1rem;
+      }
+
+      .contact-us h2 {
+        font-size: 2.5rem;
+        margin: 0 0 15px 0;
+        padding-right: 6px;
+      }
+
+      .contact-us p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .contact-us a {
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      .better-world h1 {
+        font-size: 2.5rem;
+        margin: 0 0 20px 0;
+        padding-right: 6px;
+      }
+
+      .better-world p {
+        font-size: 1.2rem;
+      }
+
+      .better-world li {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- About Header -->
+    <section class="about-header reveal">
+      <div class="text">
+        <h1>אודות</h1>
+        <p>עמותת חזקת הגיל הרך = טובת הילד (ע"ר) נוסדה בשנת 2023 על ידי אמהות שורדות אלימות ונרקיסיזם במשפחה, מתוך צורך עמוק להעלות מודעות לפגיעה הנגרמת לתינוקות וילדים בגיל הרך כאשר הם נלקחים מביתם ומורחקים בכפייה מאמם (המטפל העיקרי והמקום הבטוח שלהם) לאורך זמן. מטרתנו לפעול למען חיזוק ואכיפת חוק חזקת הגיל הרך, בדגש על מצבים של אלימות ונרקיסיזם.</p>
+        <div class="about-hero-buttons">
+          <a href="https://www.atzuma.co.il/momsnotsilent" class="btn primary-btn" target="_blank">חתמו על העצומה</a>
+          <a href="#" class="btn secondary-btn">תרמו עכשיו</a>
+        </div>
+      </div>
+      <div class="image">
+        <img src="../assets/logoAndText.png" alt="Site Logo">
+        <img src="../assets/womenProtest.avif" alt="Hover Image" class="hover-image">
+      </div>
+    </section>
+
+    <!-- Better World Section -->
+    <section class="better-world reveal">
+      <h1>עולם טוב יותר</h1>
+      <p>העמותה פועלת לקידום חקיקה להגנה על נשים וילדים בנושאים הבאים:</p>
+      <ul>
+        <li>חוק לחיזוק ואכיפת חוק חזקת הגיל הרך</li>
+        <li>חוק להגנה על האישה בהריון ולאחר לידה</li>
+        <li>חוק להפרדת מזונות ומשמורת</li>
+        <li>חוק להגדרת ואכיפת אלימות במשפחה</li>
+        <li>חוק להגדרת ואכיפת ניכור הורי</li>
+        <li>חוק לביטול איסור הפרסום בבתי המשפט למשפחה</li>
+        <li>חוק חובת הקלטת כל הדיונים בבתי המשפט למשפחה</li>
+        <li>חוק סבסוד חופשת לידה לאמהות עד גיל 3</li>
+      </ul>
+    </section>
+
+    <!-- Video Section -->
+    <section class="about-video-section reveal">
+      <video autoplay muted loop>
+        <source src="../assets/kidsSwinging.mp4" type="video/mp4">
+        הדפדפן שלך אינו תומך בנגן וידאו.
+      </video>
+      <div class="overlay">
+        <div class="item"><i class="fas fa-hand-holding-heart"></i><h3>הגנת ילדים</h3></div>
+        <div class="item"><i class="fas fa-users"></i><h3>קהילה</h3></div>
+        <div class="item"><i class="fas fa-lightbulb"></i><h3>הסברה</h3></div>
+        <div class="item"><i class="fas fa-balance-scale"></i><h3>חקיקה</h3></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-us reveal">
+      <h2>צור קשר</h2>
+      <p>נשמח לשמוע ממך! נענה לפנייתך בהקדם האפשרי.</p>
+      <p>לכל שאלה או פנייה:  <a href="mailto:hezkathagilharach@gmail.com">hezkathagilharach@gmail.com</a></p>
+    </section>
+  </main>
+
+  <!-- Accessibility Placeholder -->
+  <div id="accessibility-placeholder"></div>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script type="module" src="../script.js"></script>
+  <script>
+    // Load Navbar, Footer, Accessibility overlay
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("../base/navbar.html").then(res => res.text())
+        .then(data => document.getElementById("navbar").innerHTML = data);
+      fetch("../base/footer.html").then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+
+      fetch("../base/accessibility.html").then(res => res.text())
+        .then(data => {
+          document.body.insertAdjacentHTML("beforeend", data);
+          if (window.initAccessibility) window.initAccessibility();
+        }).catch(err => console.error("Accessibility load error:", err));
+
+      // Reveal animations
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(r => observer.observe(r));
+
+      // Donate button popup
+      const donateBtn = document.querySelector(".btn.secondary-btn");
+      donateBtn?.addEventListener("click", e => {
+        e.preventDefault();
+        alert("תודה על רצונך לתרום! ❤️ חשבון בנק לתרומות יתווסף בקרוב");
+      });
+    });
+  </script>
+</body>
+</html>
