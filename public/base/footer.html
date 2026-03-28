@@ -1,11 +1,21 @@
-<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
 
-    <!-- Left side: Logo -->
+
+    <!-- Right side: Quick links
+    <div class="footer-links-right">
+      <h4>מי אנחנו</h4>
+      <ul>
+        <li><a href="/tovat-hayeled/pages/about.html">אודות</a></li>
+        <li><a href="/tovat-hayeled/pages/about.html#contact">צור קשר</a></li>
+ 
+      </ul>
+    </div> -->
+
+ <!-- Left side: Logo -->
     <div class="footer-left">
       <div class="footer-logo">
-        <img id="site-footer-logo" alt="Site Logo" title="צור קשר">
+        <img id="site-footer-logo" src="./assets/logoBlackHorizontal.png" alt="Site Logo" title="צור קשר">
       </div>
     </div>
 
@@ -23,31 +33,10 @@
 
   <div class="footer-bottom">
     <div class="footer-links">
-      <a id="terms-link">תנאי שימוש</a>
-      <a id="privacy-link">מדיניות פרטיות</a>
+      <a href="./pages/terms.html">תנאי שימוש</a>
+      <a href="./pages/privacy.html">מדיניות פרטיות</a>
     </div>
-    <p class="footer-note">2026 כל הזכויות שמורות ©</p>
+    <p class="footer-note"> 2026 כל הזכויות שמורות ©</p>
   </div>
 </footer>
 
-<!-- Footer dynamic path script -->
-<script>
-  (function() {
-    const isRoot = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
-    const basePath = isRoot ? '' : '../';
-
-    // Footer logo
-    const footerLogo = document.getElementById('site-footer-logo');
-    if (footerLogo) footerLogo.src = basePath + '/assets/logoBlackHorizontal.png';
-
-    // Footer links
-    const footerLinks = {
-      'terms-link': 'pages/terms.html',
-      'privacy-link': 'pages/privacy.html'
-    };
-    for (const [id, path] of Object.entries(footerLinks)) {
-      const el = document.getElementById(id);
-      if (el) el.href = basePath + path;
-    }
-  })();
-</script>
