@@ -1,45 +1,77 @@
 // -------------------------
-// Firebase Upload
+// Firebase Initialization
 // -------------------------
-// ✅ Browser-compatible Firebase imports
+// Browser-compatible Firebase imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-// ✅ Your config (fixed)
+// Your Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyDesQHO95SuHJ-OPR1Wg-QgRfLDDoe9D54",
   authDomain: "hezkat-hagil-harach.firebaseapp.com",
   projectId: "hezkat-hagil-harach",
-  storageBucket: "hezkat-hagil-harach.appspot.com", // 🔥 FIXED
+  storageBucket: "hezkat-hagil-harach.appspot.com",
   messagingSenderId: "251986465767",
   appId: "1:251986465767:web:798e9d1990e47e971be342"
 };
 
-// ✅ Initialize
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
 // -------------------------
-// Upload logic
+// Helper function: get file URL
 // -------------------------
-const fileInput = document.getElementById("fileInput");
-
-if (fileInput) {
-  fileInput.addEventListener("change", async () => {
-    const file = fileInput.files[0];
-    if (!file) return;
-
-    const storageRef = ref(storage, "uploads/" + file.name);
-
-    try {
-      await uploadBytes(storageRef, file);
-      console.log("Uploaded!");
-    } catch (error) {
-      console.error("Upload failed:", error);
-    }
-  });
+async function getFileURL(path) {
+  try {
+    const storageRef = ref(storage, path);
+    const url = await getDownloadURL(storageRef);
+    return url;
+  } catch (error) {
+    console.error(`Error getting URL for "${path}":`, error);
+    return null;
+  }
 }
 
+// -------------------------
+// Load images from Firebase Storage
+// -------------------------
+document.addEventListener("DOMContentLoaded", async () => {
+  const images = document.querySelectorAll("img[data-firebase-path]");
+
+  images.forEach(async (img) => {
+    const path = img.getAttribute("data-firebase-path");
+    if (!path) return;
+
+    try {
+      const url = await getFileURL(path);
+      if (url) img.src = url; // replace src with Firebase Storage URL
+    } catch (err) {
+      console.error(`Failed to load image ${path}:`, err);
+    }
+  });
+});
+
+// Load videos from Firebase Storage
+const videos = document.querySelectorAll("video[data-firebase-path]");
+
+videos.forEach(async (video) => {
+  const path = video.getAttribute("data-firebase-path");
+  if (!path) return;
+
+  try {
+    const url = await getFileURL(path);
+    if (url) {
+      const source = video.querySelector("source");
+      if (source) source.src = url;
+      else video.src = url;
+      video.load();
+      video.play().catch(() => {});
+    }
+  } catch (err) {
+    console.error(`Failed to load video ${path}:`, err);
+  }
+});
 
 // -------------------------
 // Smooth Scroll for Nav Links

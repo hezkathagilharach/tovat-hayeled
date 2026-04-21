@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    * {
+     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -21,6 +21,12 @@
       text-align: right;
       overflow-x: hidden;
       line-height: 1.8;
+    }
+    .content-section ul {
+      list-style-position: outside;
+      padding-right: 35px;
+      padding-left: 0;
+      margin-bottom: 25px;
     }
 
     .content-section {
@@ -45,11 +51,14 @@
       margin-bottom: 10px;
     }
 
-    ul {
+    /* ul {
       list-style-position: outside;
-      padding-right: 35px; /* Proper RTL spacing */
       padding-left: 0;
       margin-bottom: 25px;
+    } */
+
+    .content-section ul {
+     padding-right: 35px;
     }
 
     li {
@@ -80,28 +89,28 @@
     }
 
 
-    .website-thumbnails {
+ .website-thumbnails {
   max-width: 1000px;
   margin: 50px auto;
   padding: 0 20px;
   text-align: right;
-}
+ }
 
-.website-thumbnails h2 {
+ .website-thumbnails h2 {
   font-size: 2rem;
   margin-bottom: 25px;
   border-right: 4px solid #444;
   padding-right: 10px;
-}
+ }
 
-.thumbnails-container {
+ .thumbnails-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start; /* for RTL, items start from the right */
-}
+ }
 
-.thumbnail {
+ .thumbnail {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,55 +119,57 @@
   width: 300px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border-radius: 10px;
-}
+ }
 
-.thumbnail img {
+ .thumbnail img {
   width: 100%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+ }
 
-.thumb-text {
+ .thumb-text {
   text-align: center;
   margin-top: 10px;
-}
+ }
 
-.thumb-text .title {
+ .thumb-text .title {
   font-weight: 700;
   font-size: 1rem;
   display: block;
-}
+ }
 
-.thumb-text .desc {
+ .thumb-text .desc {
   font-weight: 400;
   font-size: 0.9rem;
   color: #555;
   display: block;
   margin-top: 2px;
-}
+ }
 
-/* Hover effect */
-.thumbnail:hover {
+ /* Hover effect */
+ .thumbnail:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+  }
 
-@media (max-width: 700px) {
+ @media (max-width: 700px) {
   .thumbnails-container {
     justify-content: center;
   }
   .thumbnail {
     width: 45%;
   }
-}
+ }
 
-@media (max-width: 450px) {
+ @media (max-width: 450px) {
   .thumbnail {
     width: 100%;
   }
-}
+ }
   </style>
+
+
 </head>
 <body>
 
@@ -192,7 +203,7 @@
 </section>
  <section class="article-flow ">
   <div class="article-image reveal">
-    <img src="../assets/narcissist.jpg" alt="Example Image">
+    <img src="../assets/narcissist.webp" alt="Example Image" loading="lazy">
   </div>
   <div class="article-text reveal">
 
@@ -299,7 +310,7 @@
   <div class="thumbnails-container">
 
     <a href="https://www.2standup.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/" target="_blank" class="thumbnail">
-      <img src="../assets/iritVaich.jpeg" alt="אירית וייך">
+      <img src="../assets/iritVaich.webp" alt="אירית וייך" loading="lazy">
       <div class="thumb-text">
         <span class="title">אירית וייך</span>
         <span class="desc">מאמנת מנטלית ומורת-דרך ליחסים ולזוגיות</span>
@@ -307,7 +318,7 @@
     </a>
 
     <a href="https://liatshachar.com/" target="_blank" class="thumbnail">
-      <img src="../assets/narcissismCenter.jpeg" alt="ליאת שחר">
+      <img src="../assets/narcissismCenter.webp" alt="ליאת שחר" loading="lazy">
       <div class="thumb-text">
         <span class="title">ליאת שחר</span>
         <span class="desc">המרכז לנרקיסיזם בישראל</span>
@@ -317,8 +328,6 @@
   </div>
 </section>
    
-  </div>
-</section>
 
 
       <!-- Pagination -->
@@ -329,19 +338,22 @@
 
 <div id="footer"></div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Navbar & Footer
-  fetch("../base/navbar.html").then(res => res.text()).then(data => document.getElementById("navbar").innerHTML = data);
-  fetch("../base/footer.html").then(res => res.text()).then(data => document.getElementById("footer").innerHTML = data);
 
-  // Accessibility overlay
-  fetch("../base/accessibility.html")
-    .then(res => res.text())
-    .then(data => {
-      document.body.insertAdjacentHTML("beforeend", data);
-      if(typeof initAccessibility === "function") initAccessibility();
-    });
+<script>
+
+  // Load Navbar, Footer, Accessibility overlay
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("../base/navbar.html").then(res => res.text())
+        .then(data => document.getElementById("navbar").innerHTML = data);
+      fetch("../base/footer.html").then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+
+      fetch("../base/accessibility.html").then(res => res.text())
+        .then(data => {
+          document.body.insertAdjacentHTML("beforeend", data);
+          if (window.initAccessibility) window.initAccessibility();
+        }).catch(err => console.error("Accessibility load error:", err));
+
 
   // Reveal animation
   const reveals = document.querySelectorAll(".reveal");
@@ -356,6 +368,7 @@ document.addEventListener("DOMContentLoaded", function() {
   reveals.forEach(r => observer.observe(r));
 });
 </script>
+
 
 <script src="../script.js"></script>
 

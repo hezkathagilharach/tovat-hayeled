@@ -550,7 +550,11 @@ body {
   max-height: 520px;
 }
 
-
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 
 /* Reveal (if you use JS to toggle .active or .visible) */
@@ -781,6 +785,12 @@ body {
 }
 
 @media (max-width: 768px) {
+
+  .background-video {
+    display: none;
+  }
+
+
   .fact-item {
     flex-direction: column;
     text-align: center;

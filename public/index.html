@@ -6,7 +6,7 @@
   <title>חזקת הגיל הרך = טובת הילד</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<script type="module" src="./base/accessibility.js"></script>
 </head>
 <body>
 
@@ -25,17 +25,19 @@
 <header id="home" class="hero-section reveal-section">
 
   <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    class="background-video"
-    poster="assets/girlSwingingImage.png"
-    preload="none">
-    
-    <source src="assets/girlSwinging.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  autoplay 
+  muted 
+  loop 
+  playsinline 
+  class="background-video"
+  poster="assets/girlSwingingImage.webp"
+  preload="none">
+
+  <source src="assets/girlSwinging.webm" type="video/webm" />
+  <source src="assets/girlSwinging.mp4" type="video/mp4" />
+
+  Your browser does not support the video tag.
+</video>
 
   <div class="hero-overlay">
     <h1 class="hero-title">חזקת הגיל הרך = טובת הילד</h1>
@@ -113,7 +115,7 @@
 
  <section class="article-flow container reveal-section">
   <div class="article-image reveal">
-    <img src="./assets/cryingBoy.jpg" alt="Example Image">
+    <img src="./assets/cryingBoy.webp" alt="Example Image" loading="lazy">
   </div>
   <div class="article-text reveal">
   <p>
@@ -180,7 +182,7 @@
   </div>
 
   <div class="right-image  reveal-section" aria-hidden="false" >
-    <img src="./assets/sadGirl.avif" alt="Descriptive Alt Text" />
+    <img src="./assets/sadGirl.avif" alt="Descriptive Alt Text" loading="lazy">
   </div>
   
 </section>
@@ -406,18 +408,18 @@ document.addEventListener("click", function(e) {
 });
 
 
-// lazy load the video AFTER page renders
-  const video = document.querySelector(".background-video");
-  if (video) {
-    video.preload = "auto";
-    video.load();
-    video.play().catch(() => {});
-  }
+// wise load the video 
+const video = document.querySelector(".background-video");
+
+if (video && window.innerWidth > 768) {
+  video.play().catch(() => {});
+}
 
 
 });
 </script>
 <script type="module" src="./script.js"></script> 
+
 
 
 

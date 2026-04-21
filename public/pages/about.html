@@ -324,8 +324,8 @@
         </div>
       </div>
       <div class="image">
-        <img src="../assets/logoAndText.png" alt="Site Logo">
-        <img src="../assets/womenProtest.avif" alt="Hover Image" class="hover-image">
+        <img src="../assets/logoAndText.webp" alt="Site Logo" loading="lazy">
+        <img src="../assets/womenProtest.avif" alt="Hover Image" class="hover-image" loading="lazy">
       </div>
     </section>
 
@@ -347,9 +347,19 @@
 
     <!-- Video Section -->
     <section class="about-video-section reveal">
-      <video autoplay muted loop>
-        <source src="../assets/kidsSwinging.mp4" type="video/mp4">
-        הדפדפן שלך אינו תומך בנגן וידאו.
+          <video 
+              autoplay 
+              muted 
+              loop 
+              playsinline 
+              preload="none"
+              poster="../assets/kidsSwinging.webp"
+              class="background-video">
+
+              <source src="../assets/kidsSwinging.webm" type="video/webm">
+              <source src="../assets/kidsSwinging.mp4" type="video/mp4">
+
+              הדפדפן שלך אינו תומך בנגן וידאו.
       </video>
       <div class="overlay">
         <div class="item"><i class="fas fa-hand-holding-heart"></i><h3>הגנת ילדים</h3></div>
