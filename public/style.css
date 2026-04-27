@@ -1,4 +1,6 @@
 
+
+
 /* Reset */
 * {
   margin: 0;
@@ -205,120 +207,6 @@ body {
   display: none;   /* hidden on desktop */
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  /* Navbar adjustments */
-  .navbar {
-    padding: 0 20px;
-    height: 60px;
-    justify-content: space-between;
-  }
-
-  .logo img {
-    height: 50px;
-  }
-
-  .nav-links {
-    flex-direction: column-reverse;
-    position: fixed;
-    top: 30px;
-    right: -100%;
-    width: 180px;
-    background: rgba(255, 255, 255, 0.95);
-    height: 300px;
-    gap: 15px;
-    padding: 20px;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    z-index: 14;
-    direction: rtl;
-  }
-
-  .nav-links.active {
-    right: 0;
-  }
-
-  .nav-links a {
-    font-size: 1.4rem;
-    color: #0a7b83;
-    display: block;
-  }
-
-  /* Hamburger button */
- .hamburger {
-  display: flex;  
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  cursor: pointer;
-  z-index: 15;
-}
-
-  .hamburger div {
-    width: 30px;
-    height: 3px;
-    background-color: #0a7b83;
-    transition: all 0.3s ease;
-  }
-
-  /* Hero Section */
-  .hero-section {
-    height: 70vh; /* keep it proportional on mobile */
-  }
-
-  /* Hero Overlay: center content */
-  .hero-overlay {
-    top: auto;
-    bottom: 10%;
-    transform: translateX(-50%);
-    text-align: center;
-    max-width: 100%;
-    justify-content: center;
-  }
-
-  /* Hero Title: wider and responsive */
-  .hero-title {
-    margin-top: 30px;
-    font-size: 8vw;          /* scales with viewport width */
-    font-weight: 700;
-    line-height: 1.2;
-    width: 100%;
-    white-space: normal;      /* allow wrapping */
-    margin: 0 auto;           /* center */
-  }
-
-  /* Hero Subtitle: responsive */
-  .hero-subtitle {
-    font-size: 6vw;          /* scales with viewport */
-    margin-top: 10px;
-    line-height: 1.4;
-    width: 100%;
-    max-width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-/* Hero Buttons: center on mobile */
-.hero-buttons {
-  display: flex;            /* enable flex layout */
-  flex-direction: column;   /* stack vertically */
-  gap: 15px;                /* space between buttons */
-  justify-content: center;  /* vertical centering (if needed) */
-  align-items: center;      /* horizontal centering */
-  margin-top: 25px;
-}
-.hero-buttons a  {   /* or .hero-buttons button */
-  flex: 1 1 0;
-  min-width: 0;
-  width: 100%;
-  max-width: 200px;   
-  text-align: center;
-   padding: 10px 5px;
-}
-
-}
-
-
 
 
 /* Quote Section (Hebrew / RTL) */
@@ -468,31 +356,6 @@ body {
       opacity: 1;
       transform: translateY(0);
     }
-/* Ultra-micro increments for mobile */
-@media (max-width: 900px) {
-  .text-increase p span {
-    display: block;
-    line-height: 1;   /* even tighter */
-    margin-bottom: 0;
-    padding: 0;
-  }
-
-  /* Start at 1rem, increase by only 0.004rem per line */
-  .text-increase p span:nth-child(1)  { font-size: 1rem; }
-  .text-increase p span:nth-child(2)  { font-size: 1rem; }
-  .text-increase p span:nth-child(3)  { font-size: 1rem; }
-  .text-increase p span:nth-child(4)  { font-size: 1.008rem; }
-  .text-increase p span:nth-child(5)  { font-size: 1.009rem; }
-  .text-increase p span:nth-child(6)  { font-size: 1.012rem; }
-  .text-increase p span:nth-child(7)  { font-size: 1.014rem; }
-  .text-increase p span:nth-child(8)  { font-size: 1.016rem; }
-  .text-increase p span:nth-child(9)  { font-size: 1.020rem; }
-  .text-increase p span:nth-child(10) { font-size: 1.021rem; }
-  .text-increase p span:nth-child(11) { font-size: 1.022rem; }
-  .text-increase p span:nth-child(12) { font-size: 1.024rem; }
-  .text-increase p span:nth-child(13) { font-size: 1.026rem; }
-}
-
 
 
 
@@ -562,50 +425,7 @@ img {
 .reveal-section.active, .reveal-section.visible { opacity: 1; transform: translateY(0); }
 
  
-/* Mobile: stack columns */
-@media (max-width: 900px) {
-  .side-by-side {
-    flex-direction: column-reverse;
-    align-items: center;
-    margin: 50px auto; /* auto left/right centers the whole container */
-    gap: 30px;
-    width: 100%;   /* optional: prevents it from stretching too wide */
-  }
 
-
-.left-content,
-.right-image {
-  padding: 0 15px; /* small horizontal padding */
-  width: 100%; 
-}
-
-
-.left-content h2 {
-  font-size: 2rem;
-
-}
-
-
-  .right-image img {
-    width: 100%;
-    max-width: 400px;              /* prevent image from being too large */
-    height: auto;
-  }
-
-.side-buttons {
-  display: flex;          /* needed for justify-content and gap */
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.side-buttons .btn {
-  width: 100%;            /* same as hero buttons */
-  max-width: 200px;       /* keep same size as hero buttons */
-  min-width: 140px;       /* optional for tap targets */
-  text-align: center;
-}
-}
 
 /* FAQ Section   */
 .faq-section {
@@ -679,57 +499,6 @@ img {
         transform: rotate(-45deg); /* arrow points up when open */ 
       }
 
-      /* FAQ Section Mobile */
-@media (max-width: 900px) {
-
-  .faq-section {
-    max-width: 95%;
-    margin: 40px auto;
-    padding: 0 12px;
-    text-align: right;
-  }
-
-  .faq-item {
-    margin-bottom: 14px;
-  }
-
-  .faq-question {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    padding: 10px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .faq-arrow {
-    width: 12px;
-    height: 12px;
-    min-width: 12px;
-    transform-origin: center;
-  }
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;     /* hides any peeking content */
-  padding: 0 12px;      /* remove vertical padding */
-  transition: max-height 0.4s ease;
-}
-
-/* When open – add vertical padding only when expanded */
-.faq-answer.open {
-  padding: 12px;
-}
-
-
-  .faq-answer p {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-}
-
-
-
 
 
 
@@ -784,28 +553,10 @@ img {
   margin: 0;
 }
 
-@media (max-width: 768px) {
 
-  .background-video {
-    display: none;
-  }
-
-
-  .fact-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
-
-  .fact-number {
-    font-size: 100px;
-    min-width: auto;
-  }
-
-  .fact-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
+/* Hide image on desktop */
+.mobile-hero-image {
+  display: none;
 }
 
 /* TEXT right AND IMAGE left SIDE BY SIDE */
@@ -851,47 +602,6 @@ img {
 .article-text .compact-list p strong {
   font-size: 1.1rem !important;
   display: inline-block;
-}
-
-
-@media (max-width: 900px) {
-
-  .article-flow {
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 20px;
-    margin-top: 0; /* cleaner */
-    text-align: right;
-  }
-
-  /* Text first */
-  .article-flow .article-text {
-    order: 1;
-  }
-
-  /* Image second */
-  .article-flow .article-image {
-    order: 2;
-    flex: none;          /* no fixed width on mobile */
-    width: 100%;         /* make image full width */
-    margin: 0 auto;      /* center it */
-  }
-
-  .article-flow .article-image img {
-    width: 100%;         /* fully responsive */
-  }
-
-     .article-text .compact-list p {
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-    margin: 3px 0 !important;
-    text-align: right;
-  }
-
-  .article-text .compact-list p strong {
-    font-size: 1.1rem !important;
-    margin-bottom: 4px;
-  }
 }
 
 
@@ -951,6 +661,348 @@ img {
   transform: scale(1.15);
 }
 
+
+
+/* Ensure sections scroll below fixed navbar */
+section {
+  scroll-margin-top: 80px;
+}
+
+
+/* Accessibility Floating Button */
+.accessibility-btn {
+  position: fixed;
+  top: 50%; /* middle of the screen */
+  left: 0;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: transparent; /* no circle frame */
+  background-color: #0a7b83;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.accessibility-btn img {
+  width: 32px;
+  height: 32px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.accessibility-btn:hover img {
+  filter: grayscale(0%);
+}
+
+/* Accessibility Panel */
+#accessibility-panel {
+  position: fixed;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  padding: 15px;
+
+  z-index: 9998;
+
+  max-height: 80vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* OPEN STATE */
+#accessibility-panel.open {
+  display: flex;
+}
+
+/* BUTTONS */
+#accessibility-panel button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#accessibility-panel button:hover {
+  background: #eee;
+}
+
+
+/* High contrast mode */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+
+/* Apply high contrast to all elements except accessibility button */
+.high-contrast *:not(#accessibility-btn):not(#accessibility-btn *) {
+  background-color: #000 !important;
+  color: #fff !important;
+
+   border-color: #fff !important;
+}
+ 
+
+/* Highlight links */
+.high-contrast a {
+  color: #0ff !important;
+}
+
+/* Accessibility button: white background, normal icon */
+.high-contrast #accessibility-btn {
+  background-color: #fff !important;
+  border-color: #000 !important; /* optional */
+}
+
+.high-contrast #accessibility-btn img {
+  filter: none !important;
+  content: url("https://cdn-icons-png.flaticon.com/128/1512/1512642.png"); /* same icon */
+}
+
+ /* Grayscale */
+/* Keep html/body unfiltered so fixed elements work */
+html.grayscale,
+body.grayscale {
+  filter: none !important;
+}
+
+
+/* Apply grayscale to all elements except accessibility UI */
+body.grayscale *:not(#accessibility-btn):not(#accessibility-panel):not(#accessibility-btn *):not(#accessibility-panel *) {
+  filter: grayscale(100%);
+  filter: grayscale(100%) !important;
+}
+
+
+body.grayscale .navbar {
+  position: relative !important;
+  z-index: auto;
+}
+
+
+
+/* Underline links */
+.underline-links a {
+  text-decoration: underline !important;
+}
+
+/* Text scaling: use rem */
+html {
+  font-size: 16px; /* default base */
+}
+
+/* Dark mode */
+/* =========================
+   DARK MODE (COMPACT)
+   ========================= */
+
+.dark-mode {
+  background: #121212;
+  color: #ffffff;
+}
+
+.dark-mode * {
+  background: transparent;
+  color: inherit;
+}
+
+/* Navbar + Footer */
+.dark-mode nav,
+.dark-mode footer,
+.dark-mode .tabs button:not(.active)  {
+  background: #000 !important;
+}
+
+/* Headings */ /* Text */
+.dark-mode p,
+.dark-mode li,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: #ffffff;
+}
+
+.dark-mode .accessibility-btn,
+.dark-mode #accessibility-panel {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+/* Links */
+.dark-mode a,
+.dark-mode .fact-number  {
+  color: #4fc3f7;
+}
+
+.dark-mode a:hover {
+  color: #81d4fa;
+}
+
+/* FAQ hover (matches links) */
+.dark-mode .faq-question:hover {
+  color: #4fc3f7;
+}
+
+/* Cards / sections */
+.dark-mode .content-section,
+.dark-mode .image-statements,
+.dark-mode .article-flow,
+.dark-mode .article-text p,
+.dark-mode .faq-answer,
+.dark-mode .card-content,
+.dark-mode .law-quote {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+
+
+
+/* Paragraphs inside FAQ */
+.dark-mode .faq-answer p {
+  color: #e0e0e0 !important;
+}
+
+/* Active/open question */
+.dark-mode .faq-question.active {
+  background: #1a1a1a !important;
+  color: #4fc3f7 !important;
+}
+
+/* Optional: smooth hover like links */
+.dark-mode .faq-question:hover {
+  background: #1a1a1a;
+  color: #4fc3f7;
+}
+
+
+
+/* Reading mode */
+.reading-mode {
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.reading-mode main,
+.reading-mode article,
+.reading-mode section {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Focus highlight */
+.focus-mode a:focus-visible,
+.focus-mode button:focus-visible,
+.focus-mode input:focus-visible,
+.focus-mode textarea:focus-visible,
+.focus-mode .focused-element {
+  outline: 4px solid #ffbf47;
+  outline-offset: 4px;
+  transition: outline 0.2s ease;
+  box-shadow: 0 0 0 3px rgba(255, 191, 71, 0.4);
+}
+
+.hover-focus {
+  outline: 3px solid #ffbf47;
+}
+
+/* Dyslexia-friendly font */
+.dyslexia-mode {
+  font-family: Arial, Verdana, sans-serif !important;
+  letter-spacing: 0.05em;
+}
+
+/* Spacing mode */
+body.spacing-mode,
+body.spacing-mode * {
+  line-height: 2 !important;
+}
+
+/* Reduced motion */
+.reduce-motion *:not(#accessibility-panel):not(#accessibility-panel *) {
+  animation: none !important;
+  transition: none !important;
+}
+
+
+/* Bigger cursor (desktop only) */
+.big-cursor {
+  cursor: zoom-in;
+}
+
+.accessibility-panel button {
+  padding: 12px;
+  font-size: 16px;
+  touch-action: manipulation;
+
+  background: #ffffff;
+  color: #111;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  transition: all 0.2s ease;
+}
+
+/* HOVER = light highlight */
+#accessibility-panel button:hover {
+  background: #d9f2f4;
+  color: #0a7b83;
+  border-color: #0a7b83;
+}
+
+/* ACTIVE = strong selected state */
+#accessibility-panel button.active {
+  background: #0a7b83;
+  color: #ffffff;
+  border-color: #0a7b83;
+}
+
+/* ACTIVE + HOVER = slightly darker */
+#accessibility-panel button.active:hover {
+  background: #08646a;
+  border-color: #08646a;
+  color: #ffffff;
+}
+
+/* FLOATING ACCESSIBILITY BUTTON */
+.accessibility-btn {
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #0a7b83;
+  color: white;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+#accessibility-panel button:focus-visible {
+  outline: 3px solid #0a7b83;
+  outline-offset: 2px;
+}
+
+/* --- Footer Bottom: Links left, Note right --- */
+
 /* Footer Divider */
 .footer-divider {
   width: 100%;
@@ -958,7 +1010,7 @@ img {
   background-color: #ddd;
   margin: 1.2rem 0 0.8rem;
 }
-/* --- Footer Bottom: Links left, Note right --- */
+
 .footer-bottom {
   display: flex;
   justify-content: space-between; /* links left, note right visually */
@@ -993,6 +1045,387 @@ img {
   color: #555;
   text-align: right;
 }
+
+
+
+
+      /* ===== Responsive ===== */
+@media (max-width: 900px) {
+  /* Navbar adjustments */
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .nav-links {
+    flex-direction: column-reverse;
+    position: fixed;
+    top: 30px;
+    right: -100%;
+    width: 180px;
+    background: rgba(255, 255, 255, 0.95);
+    height: 300px;
+    gap: 15px;
+    padding: 20px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    z-index: 14;
+    direction: rtl;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.4rem;
+    color: #0a7b83;
+    display: block;
+  }
+
+  /* Hamburger button */
+ .hamburger {
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 15;
+}
+
+  .hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: #0a7b83;
+    transition: all 0.3s ease;
+  }
+
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  height: 40svh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+  /* Hero Overlay: center content */
+.hero-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: min(90%, 500px);
+  padding: 0 10px;
+  text-align: center;
+}
+
+.mobile-hero-image {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+  /* Hero Title: wider and responsive */
+  .hero-title {
+    margin-top: 60px;
+    font-size: 8vw;          /* scales with viewport width */
+    font-weight: 700;
+    line-height: 1.2;
+    width: 80%;
+    white-space: normal;      /* allow wrapping */
+    margin: 0 auto;        /*   center */
+  
+  }
+
+  /* Hero Subtitle: responsive */
+  .hero-subtitle {
+    font-size: 6vw;          /* scales with viewport */
+    margin-top: 10px;
+    line-height: 1.4;
+    font-weight: bold;
+    width: 100%;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: row;        /* 👈 row instead of column */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;            /* allows wrapping if needed */
+    margin-top: 10px;
+
+  }
+
+  .hero-buttons .btn {
+     width: auto;
+  min-width: 110px;     /* 👈 smaller width */
+  max-width: 160px;     /* 👈 limit size */
+  padding: 0.5em 1em;   /* 👈 smaller padding */
+  font-size: 0.9rem;    /* 👈 smaller text */
+  text-align: center;
+  }
+
+
+.hero-buttons .primary-btn {
+  background-color: #0a7b83;
+  color: #fff;
+}
+
+.hero-buttons .primary-btn:hover {
+  background-color: #08646a;
+}
+
+.hero-buttons .secondary-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #0a7b83;
+}
+
+.hero-buttons .secondary-btn:hover {
+  background-color: rgba(10, 123, 131, 0.1);
+}
+
+
+}
+
+
+
+/* Ultra-micro increments for mobile */
+@media (max-width: 900px) {
+  .text-increase p span {
+    display: block;
+    line-height: 1;   /* even tighter */
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  /* Start at 1rem, increase by only 0.004rem per line */
+  .text-increase p span:nth-child(1)  { font-size: 1rem; }
+  .text-increase p span:nth-child(2)  { font-size: 1rem; }
+  .text-increase p span:nth-child(3)  { font-size: 1rem; }
+  .text-increase p span:nth-child(4)  { font-size: 1.008rem; }
+  .text-increase p span:nth-child(5)  { font-size: 1.009rem; }
+  .text-increase p span:nth-child(6)  { font-size: 1.012rem; }
+  .text-increase p span:nth-child(7)  { font-size: 1.014rem; }
+  .text-increase p span:nth-child(8)  { font-size: 1.016rem; }
+  .text-increase p span:nth-child(9)  { font-size: 1.020rem; }
+  .text-increase p span:nth-child(10) { font-size: 1.021rem; }
+  .text-increase p span:nth-child(11) { font-size: 1.022rem; }
+  .text-increase p span:nth-child(12) { font-size: 1.024rem; }
+  .text-increase p span:nth-child(13) { font-size: 1.026rem; }
+}
+
+
+/* Mobile: stack columns */
+@media (max-width: 900px) {
+  .side-by-side {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 50px auto; /* auto left/right centers the whole container */
+    gap: 30px;
+    width: 100%;   /* optional: prevents it from stretching too wide */
+  }
+
+
+.left-content,
+.right-image {
+  padding: 0 15px; /* small horizontal padding */
+  width: 100%; 
+}
+
+
+.left-content h2 {
+  font-size: 2rem;
+  margin-right: 47px;
+
+}
+
+
+  .right-image img {
+    width: 100%;
+    max-width: 400px;              /* prevent image from being too large */
+    height: auto;
+  }
+
+.side-buttons {
+  display: flex;          /* needed for justify-content and gap */
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.side-buttons .btn {
+       width: auto;
+  min-width: 110px;     /* 👈 smaller width */
+  max-width: 160px;     /* 👈 limit size */
+  padding: 0.5em 1em;   /* 👈 smaller padding */
+  font-size: 0.9rem;    /* 👈 smaller text */
+  text-align: center;
+}
+}
+
+      /* FAQ Section Mobile */
+@media (max-width: 900px) {
+
+  .faq-section {
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 0 12px;
+    text-align: right;
+  }
+
+  .faq-item {
+    margin-bottom: 14px;
+  }
+
+  .faq-question {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .faq-arrow {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    transform-origin: center;
+  }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;     /* hides any peeking content */
+  padding: 0 12px;      /* remove vertical padding */
+  transition: max-height 0.4s ease;
+}
+
+/* When open – add vertical padding only when expanded */
+.faq-answer.open {
+  padding: 12px;
+}
+
+
+  .faq-answer p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+}
+
+
+
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+  .background-video {
+    display: none;
+  }
+
+  .hero-overlay {
+  width: min(90%, 500px);
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
+
+
+
+  .mobile-hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+
+  .fact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .fact-number {
+    font-size: 100px;
+    min-width: auto;
+  }
+
+  .fact-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
+
+
+
+@media (max-width: 900px) {
+
+  .article-flow {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+    margin-top: 0; /* cleaner */
+    text-align: right;
+  }
+
+  /* Text first */
+  .article-flow .article-text {
+    order: 1;
+  }
+
+  /* Image second */
+  .article-flow .article-image {
+    order: 2;
+    flex: none;          /* no fixed width on mobile */
+    width: 100%;         /* make image full width */
+    margin: 0 auto;      /* center it */
+  }
+
+  .article-flow .article-image img {
+    width: 100%;         /* fully responsive */
+  }
+
+     .article-text .compact-list p {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin: 3px 0 !important;
+    text-align: right;
+  }
+
+  .article-text .compact-list p strong {
+    font-size: 1.1rem !important;
+    margin-bottom: 4px;
+  }
+}
+
+
 
 /* --- Mobile Footer --- */
 @media (max-width: 768px) {
@@ -1106,126 +1539,3 @@ img {
 }
 
 
-
-
-
-/* Ensure sections scroll below fixed navbar */
-section {
-  scroll-margin-top: 80px;
-}
-
-/* Accessibility Floating Button */
-.accessibility-btn {
-  position: fixed;
-  top: 50%; /* middle of the screen */
-  left: 0;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: transparent; /* no circle frame */
-  background-color: #0a7b83;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-.accessibility-btn img {
-  width: 32px;
-  height: 32px;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-}
-
-.accessibility-btn:hover img {
-  filter: grayscale(0%);
-}
-
-/* Accessibility Panel */
-#accessibility-panel {
-  position: fixed;
-  top: 50%;
-  left: 60px;
-  transform: translateY(-50%);
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  padding: 15px;
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 9998;
-}
-
-#accessibility-panel button {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: #f9f9f9;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-#accessibility-panel button:hover {
-  background: #eee;
-}
-
-
-/* High contrast mode */
-.high-contrast {
-  background-color: #000 !important;
-  color: #fff !important;
-}
-
-/* Apply high contrast to all elements except accessibility button */
-.high-contrast *:not(#accessibility-btn):not(#accessibility-btn *) {
-  background-color: #000 !important;
-  color: #fff !important;
-  border-color: #fff !important;
-}
-
-/* Highlight links */
-.high-contrast a {
-  color: #0ff !important;
-}
-
-/* Accessibility button: white background, normal icon */
-.high-contrast #accessibility-btn {
-  background-color: #fff !important;
-  border-color: #000 !important; /* optional */
-}
-
-.high-contrast #accessibility-btn img {
-  filter: none !important;
-  content: url("https://cdn-icons-png.flaticon.com/128/1512/1512642.png"); /* same icon */
-}
-
- /* Grayscale */
-/* Keep html/body unfiltered so fixed elements work */
-html.grayscale,
-body.grayscale {
-  filter: none !important;
-}
-
-/* Apply grayscale to all elements except accessibility UI */
-body.grayscale *:not(#accessibility-btn):not(#accessibility-panel):not(#accessibility-btn *):not(#accessibility-panel *) {
-  filter: grayscale(100%) !important;
-}
-
-body.grayscale .navbar {
-  position: relative !important;
-  z-index: auto;
-}
-
-
-/* Underline links */
-.underline-links a {
-  text-decoration: underline !important;
-}
-
-/* Text scaling: use rem */
-html {
-  font-size: 16px; /* default base */
-}

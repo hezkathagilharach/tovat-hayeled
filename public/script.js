@@ -190,76 +190,256 @@ document.addEventListener("click", function (e) {
     navLinks.classList.remove("active");
   }
 });
-
 // -------------------------
-// Accessibility Features
+// Accessibility Features (FINAL CLEAN VERSION)
 // -------------------------
 function initAccessibility() {
   const btn = document.getElementById("accessibility-btn");
   const panel = document.getElementById("accessibility-panel");
 
-  if (!btn || !panel) return console.error("Accessibility elements missing!");
+  if (!btn || !panel) {
+    return console.error("Accessibility elements missing!");
+  }
 
-  let currentScale = 1;
+  // -------------------------
+  // STATE (single source of truth)
+  // -------------------------
+  let state = {
+    scale: parseFloat(localStorage.getItem("fontScale")) || 1,
+    contrast: localStorage.getItem("contrast") === "1",
+    grayscale: localStorage.getItem("grayscale") === "1",
+    underline: localStorage.getItem("underline") === "1",
+    dark: localStorage.getItem("dark") === "1",
+    reading: localStorage.getItem("reading") === "1",
+    focus: localStorage.getItem("focus") === "1",
+    dyslexia: localStorage.getItem("dyslexia") === "1",
+    spacing: localStorage.getItem("spacing") === "1",
+    motion: localStorage.getItem("motion") === "1",
+  };
 
-  const setFontSize = () => document.documentElement.style.fontSize = `${16 * currentScale}px`;
+  window.accessibilityState = state;
 
-  btn.addEventListener("click", e => {
+  // -------------------------
+  // ONLY TOGGLE BUTTONS (IMPORTANT FIX)
+  // action buttons are NOT included here
+  // -------------------------
+  const buttonMap = {
+    contrast: "toggle-contrast",
+    grayscale: "toggle-grayscale",
+    dark: "toggle-dark-mode",
+    underline: "underline-links",
+    reading: "toggle-reading-mode",
+    focus: "toggle-focus",
+    dyslexia: "toggle-dyslexia",
+    spacing: "increase-spacing",
+    motion: "toggle-motion",
+  };
+
+  // -------------------------
+  // UPDATE ACTIVE BUTTONS (FIXED RELIABILITY)
+  // -------------------------
+  const updateActiveButtons = () => {
+    Object.entries(buttonMap).forEach(([key, id]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      if (state[key]) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+  };
+
+  // -------------------------
+  // APPLY STATE → DOM
+  // -------------------------
+  const applyState = () => {
+    document.documentElement.style.fontSize = `${16 * state.scale}px`;
+
+    document.body.classList.remove(
+      "high-contrast",
+      "grayscale",
+      "dark-mode",
+      "underline-links",
+      "reading-mode",
+      "focus-mode",
+      "dyslexia-mode",
+      "spacing-mode",
+      "reduce-motion"
+    );
+
+    if (state.contrast) document.body.classList.add("high-contrast");
+    if (state.dark) document.body.classList.add("dark-mode");
+    if (state.grayscale) document.body.classList.add("grayscale");
+
+    if (state.underline) document.body.classList.add("underline-links");
+    if (state.reading) document.body.classList.add("reading-mode");
+    if (state.focus) document.body.classList.add("focus-mode");
+    if (state.dyslexia) document.body.classList.add("dyslexia-mode");
+    if (state.spacing) document.body.classList.add("spacing-mode");
+
+    // motion
+    if (state.motion) {
+      document.body.classList.add("reduce-motion");
+      document.querySelectorAll("video").forEach(v => v.pause());
+    }
+
+    updateLogos();
+    updateActiveButtons();
+  };
+
+  // -------------------------
+  // SAVE STATE
+  // -------------------------
+  const saveState = () => {
+    localStorage.setItem("fontScale", state.scale);
+    localStorage.setItem("contrast", state.contrast ? "1" : "0");
+    localStorage.setItem("grayscale", state.grayscale ? "1" : "0");
+    localStorage.setItem("underline", state.underline ? "1" : "0");
+    localStorage.setItem("dark", state.dark ? "1" : "0");
+    localStorage.setItem("reading", state.reading ? "1" : "0");
+    localStorage.setItem("focus", state.focus ? "1" : "0");
+    localStorage.setItem("dyslexia", state.dyslexia ? "1" : "0");
+    localStorage.setItem("spacing", state.spacing ? "1" : "0");
+    localStorage.setItem("motion", state.motion ? "1" : "0");
+  };
+
+  // initial render
+  applyState();
+
+  // -------------------------
+  // PANEL CONTROL
+  // -------------------------
+  const openPanel = () => {
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden", "false");
+    btn.setAttribute("aria-expanded", "true");
+  };
+
+  const closePanel = () => {
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden", "true");
+    btn.setAttribute("aria-expanded", "false");
+  };
+
+  btn.addEventListener("click", (e) => {
     e.stopPropagation();
-    panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+    panel.classList.contains("open") ? closePanel() : openPanel();
   });
 
-  document.addEventListener("click", e => {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePanel();
+  });
+
+  document.addEventListener("click", (e) => {
     if (!panel.contains(e.target) && !btn.contains(e.target)) {
-      panel.style.display = "none";
+      closePanel();
     }
   });
 
+  // -------------------------
+  // TEXT SIZE (ACTION BUTTONS - NO ACTIVE STATE EXPECTED)
+  // -------------------------
   document.getElementById("increase-text")?.addEventListener("click", () => {
-    currentScale += 0.1;
-    setFontSize();
+    state.scale = Math.min(1.6, state.scale + 0.1);
+    saveState();
+    applyState();
   });
 
   document.getElementById("decrease-text")?.addEventListener("click", () => {
-    currentScale = Math.max(0.5, currentScale - 0.1);
-    setFontSize();
+    state.scale = Math.max(0.8, state.scale - 0.1);
+    saveState();
+    applyState();
   });
 
-  document.getElementById("toggle-contrast")?.addEventListener("click", () => {
-    document.body.classList.toggle("high-contrast");
-    updateLogos();
+  // -------------------------
+  // TOGGLE SYSTEM
+  // -------------------------
+  const toggle = (key) => {
+    if (!(key in state)) return;
+
+    const visualModes = ["contrast", "dark", "grayscale"];
+
+    if (visualModes.includes(key)) {
+      const enable = !state[key];
+
+      visualModes.forEach(m => (state[m] = false));
+      if (enable) state[key] = true;
+    } else {
+      state[key] = !state[key];
+    }
+
+    saveState();
+    applyState();
+  };
+
+  // -------------------------
+  // TOGGLE EVENTS
+  // -------------------------
+  Object.entries(buttonMap).forEach(([key, id]) => {
+    document.getElementById(id)?.addEventListener("click", () => {
+      toggle(key);
+    });
   });
 
-  document.getElementById("toggle-grayscale")?.addEventListener("click", () => {
-    document.body.classList.toggle("grayscale");
-  });
-
-  document.getElementById("underline-links")?.addEventListener("click", () => {
-    document.body.classList.toggle("underline-links");
-  });
-
+  // -------------------------
+  // RESET (ACTION BUTTON - NO ACTIVE STATE)
+  // -------------------------
   document.getElementById("reset-accessibility")?.addEventListener("click", () => {
-    currentScale = 1;
-    setFontSize();
-    document.body.classList.remove("high-contrast", "grayscale", "underline-links");
-    updateLogos();
+    state = {
+      scale: 1,
+      contrast: false,
+      grayscale: false,
+      underline: false,
+      dark: false,
+      reading: false,
+      focus: false,
+      dyslexia: false,
+      spacing: false,
+      motion: false,
+    };
+
+    localStorage.clear();
+    applyState();
   });
 
+  // -------------------------
+  // LOGOS
+  // -------------------------
   function updateLogos() {
     const headerLogo = document.getElementById("site-logo");
     const footerLogo = document.getElementById("site-footer-logo");
 
     if (!headerLogo || !footerLogo) return;
 
-    if (document.body.classList.contains("high-contrast")) {
-      headerLogo.src = "/tovat-hayeled/assets/goldLogoSmall.png";
-      footerLogo.src = "/tovat-hayeled/assets/logoGoldHorizontal.png";
-    } else {
-      headerLogo.src = "/tovat-hayeled/assets/logoTransparent.png";
-      footerLogo.src = "/tovat-hayeled/assets/logoBlackHorizontal.png";
-    }
+    const active = state.dark || state.contrast;
+
+    headerLogo.src = active
+      ? "/assets/goldLogoSmall.webp"
+      : "/assets/logoTransparent.webp";
+
+    footerLogo.src = active
+      ? "/assets/logoGoldHorizontal.webp"
+      : "/assets/logoBlackHorizontal.webp";
   }
+
+  // -------------------------
+  // TEXT TO SPEECH (ACTION BUTTONS)
+  // -------------------------
+  document.getElementById("read-page")?.addEventListener("click", () => {
+    const speech = new SpeechSynthesisUtterance(document.body.innerText);
+    speech.lang = "he-IL";
+    speech.rate = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+  });
+
+  document.getElementById("stop-read")?.addEventListener("click", () => {
+    window.speechSynthesis.cancel();
+  });
 }
 
-// Expose globally if needed
+// expose globally
 window.initAccessibility = initAccessibility;

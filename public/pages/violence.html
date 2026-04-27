@@ -119,6 +119,12 @@
       color: #06666b;
     }
 
+.dark-mode p,
+.dark-mode h3,
+.dark-mode li {
+  color: #e0e0e0 !important;
+}
+
     /* ✨ Reveal Animation Base */
 .reveal {
   opacity: 0;
@@ -229,7 +235,7 @@
 <div id="navbar"></div>
 
 
-<main>
+<main tabindex="-1" id="main-content">
   <!-- Main Violence Section -->
 
 
@@ -321,33 +327,22 @@
 <div id="accessibility-placeholder"></div>
 
   <div id="footer"></div>
-
+  <script type="module" src="../script.js"></script>
   <script>
 
-   // Fetch navbar and footer
+     // Load Navbar, Footer, Accessibility overlay
     document.addEventListener("DOMContentLoaded", function() {
-      fetch("../base/navbar.html")
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById("navbar").innerHTML = data;
-
-    
-        });
-
-      fetch("../base/footer.html")
-        .then(res => res.text())
+      fetch("../base/navbar.html").then(res => res.text())
+        .then(data => document.getElementById("navbar").innerHTML = data);
+      fetch("../base/footer.html").then(res => res.text())
         .then(data => document.getElementById("footer").innerHTML = data);
-  
 
+      fetch("../base/accessibility.html").then(res => res.text())
+        .then(data => {
+          document.body.insertAdjacentHTML("beforeend", data);
+          if (window.initAccessibility) window.initAccessibility();
+        }).catch(err => console.error("Accessibility load error:", err));
 
-      // Load accessibility overlay dynamically
-fetch("../base/accessibility.html")
-  .then(res => res.text())
-  .then(data => {
-    document.body.insertAdjacentHTML("beforeend", data);
-    initAccessibility();
-  })
-  .catch(err => console.error("Accessibility load error:", err));
 
 
 
@@ -368,7 +363,7 @@ fetch("../base/accessibility.html")
 
 </script>
 
- <script src="../script.js"></script>
+
 
 
 

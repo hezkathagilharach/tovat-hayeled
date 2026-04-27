@@ -212,6 +212,7 @@
       color: #444;
     }
 
+
     .better-world ul {
       padding-right: 35px;
       margin: 0;
@@ -223,6 +224,11 @@
       line-height: 1.7;
       color: #333;
     }
+
+    .dark-mode p,
+.dark-mode li {
+  color: #e0e0e0 !important;
+}
 
     /* Responsive */
     @media (max-width: 900px) {
@@ -312,10 +318,10 @@
   <!-- Navbar -->
   <div id="navbar"></div>
 
-  <main>
+ <main tabindex="-1" id="main-content">
     <!-- About Header -->
     <section class="about-header reveal">
-      <div class="text">
+      <div id="about-text" class="text">
         <h1>אודות</h1>
         <p>עמותת חזקת הגיל הרך = טובת הילד (ע"ר) נוסדה בשנת 2023 על ידי אמהות שורדות אלימות ונרקיסיזם במשפחה, מתוך צורך עמוק להעלות מודעות לפגיעה הנגרמת לתינוקות וילדים בגיל הרך כאשר הם נלקחים מביתם ומורחקים בכפייה מאמם (המטפל העיקרי והמקום הבטוח שלהם) לאורך זמן. מטרתנו לפעול למען חיזוק ואכיפת חוק חזקת הגיל הרך, בדגש על מצבים של אלימות ונרקיסיזם.</p>
         <div class="about-hero-buttons">
@@ -334,14 +340,38 @@
       <h1>עולם טוב יותר</h1>
       <p>העמותה פועלת לקידום חקיקה להגנה על נשים וילדים בנושאים הבאים:</p>
       <ul>
-        <li>חוק לחיזוק ואכיפת חוק חזקת הגיל הרך</li>
-        <li>חוק להגנה על האישה בהריון ולאחר לידה</li>
-        <li>חוק להפרדת מזונות ומשמורת</li>
-        <li>חוק להגדרת ואכיפת אלימות במשפחה</li>
-        <li>חוק להגדרת ואכיפת ניכור הורי</li>
-        <li>חוק לביטול איסור הפרסום בבתי המשפט למשפחה</li>
-        <li>חוק חובת הקלטת כל הדיונים בבתי המשפט למשפחה</li>
-        <li>חוק סבסוד חופשת לידה לאמהות עד גיל 3</li>
+      <li>
+      חוק להפרדה בין מזונות למשמורת, לצורך מניעת תלות כלכלית והשפעה בלתי הוגנת על הסדרי הורות
+    </li>
+
+    <li>
+      חוק להגנה על נשים בהריון ולאחר לידה, כולל מניעת פגיעה תעסוקתית, כלכלית והורית בתקופה זו
+    </li>
+
+    <li>
+      חוק להגדרה ואכיפה של אלימות במשפחה, לרבות אלימות פיזית, רגשית, כלכלית ודפוסי שליטה מתמשכים
+    </li>
+
+    <li>
+      חוק למניעת פגיעה בקשר בין ילד להורה, תוך הבחנה בין מצבים של סיכון או אלימות לבין מניעה בלתי מוצדקת של קשר
+    </li>
+
+    <li>
+      חוק להגברת שקיפות בהליכי בתי המשפט למשפחה, תוך איזון בין פרטיות הצדדים לבין אינטרס ציבורי
+    </li>
+
+    <li>
+      חוק לחובת תיעוד והקלטת כלל הדיונים בבתי המשפט למשפחה, לצורך הבטחת שקיפות, בקרה והוגנות ההליך
+    </li>
+
+    <li>
+      חוק חופשת לידה לאמהות עד גיל שנה, תוך בחינת איזון בין טובת הילד, רווחת המשפחה והשלכות כלכליות
+    </li>
+
+    <li>
+      פיתוח כלים מקצועיים אחידים לבתי המשפט להערכת פגיעה רגשית, שליטה מתמשכת וסיכון לילדים,
+      בשיתוף גורמים אקדמיים ומקצועיים
+    </li>
       </ul>
     </section>
 
@@ -353,7 +383,7 @@
               loop 
               playsinline 
               preload="none"
-              poster="../assets/kidsSwinging.webp"
+              poster="../assets/swingingKids.webp"
               class="background-video">
 
               <source src="../assets/kidsSwinging.webm" type="video/webm">
@@ -361,6 +391,13 @@
 
               הדפדפן שלך אינו תומך בנגן וידאו.
       </video>
+<img 
+  src="../assets/swingingKids.webp"
+  class="mobile-image"
+  alt=""
+/>
+
+
       <div class="overlay">
         <div class="item"><i class="fas fa-hand-holding-heart"></i><h3>הגנת ילדים</h3></div>
         <div class="item"><i class="fas fa-users"></i><h3>קהילה</h3></div>
@@ -398,6 +435,8 @@
           if (window.initAccessibility) window.initAccessibility();
         }).catch(err => console.error("Accessibility load error:", err));
 
+
+
       // Reveal animations
       const reveals = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(entries => {
@@ -416,6 +455,7 @@
         e.preventDefault();
         alert("תודה על רצונך לתרום! ❤️ חשבון בנק לתרומות יתווסף בקרוב");
       });
+      
     });
   </script>
 </body>
