@@ -78,6 +78,10 @@ body {
   color: #0a7b83;
 }
 
+/* =========================
+   HERO SECTION 
+   ========================= */
+
 /* Hero Section */
 .hero-section {
   position: relative;
@@ -125,6 +129,8 @@ body {
   flex-wrap: wrap;
   font-size: 1.2rem;
 }
+
+   
 
 .hero-buttons .btn {
   border-radius: 50px;        /* stays round even with long text */
@@ -1046,12 +1052,10 @@ body.spacing-mode * {
   text-align: right;
 }
 
-
-
-
-      /* ===== Responsive ===== */
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
-  /* Navbar adjustments */
+
+  /* ================= NAVBAR ================= */
   .navbar {
     padding: 0 20px;
     height: 60px;
@@ -1088,455 +1092,211 @@ body.spacing-mode * {
     display: block;
   }
 
-  /* Hamburger button */
- .hamburger {
-  display: flex;  
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  cursor: pointer;
-  z-index: 15;
-}
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 15;
+  }
 
   .hamburger div {
     width: 30px;
     height: 3px;
     background-color: #0a7b83;
-    transition: all 0.3s ease;
   }
 
-
-.hero-section {
-  position: relative;
-  height: 100vh;
-  height: 40svh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-  /* Hero Overlay: center content */
-.hero-overlay {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  width: min(90%, 500px);
-  padding: 0 10px;
-  text-align: center;
-}
-
-.mobile-hero-image {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-  /* Hero Title: wider and responsive */
-  .hero-title {
-    margin-top: 70px;
-    font-size: 8vw;          /* scales with viewport width */
-    font-weight: 700;
-    line-height: 1.2;
-    width: 80%;
-    white-space: normal;      /* allow wrapping */
-    margin: 0 auto;        /*   center */
-  
+  /* ================= HERO FIX (MAIN FIX) ================= */
+  .hero-section {
+    position: relative;
+    height: 60svh;   /* stable instead of 40svh/100vh mix */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* Hero Subtitle: responsive */
-  .hero-subtitle {
-    font-size: 6vw;          /* scales with viewport */
-    margin-top: 10px;
-    line-height: 1.4;
-    font-weight: bold;
+  .hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 500px);
+    text-align: center;
+    z-index: 2;
+    padding: 0 10px;
+  }
+
+  .mobile-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 75%;
+    height: 100%;
+
+    /* ✅ CRITICAL FIX: no scaling */
+    object-fit: cover;
+    transform: none;
+
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    line-height: 1.2;
+    width: 100%;
+    margin: 0 auto;
+    white-space: normal;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 6vw, 1.5rem);
+    margin-top: 15px;
+    width: 100%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .hero-buttons {
     display: flex;
-    flex-direction: row;        /* 👈 row instead of column */
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
     gap: 10px;
-    flex-wrap: wrap;            /* allows wrapping if needed */
-    margin-top: 10px;
-
+    flex-wrap: wrap;
+    margin-top: 20px;
   }
 
   .hero-buttons .btn {
-     width: auto;
-  min-width: 110px;     /* 👈 smaller width */
-  max-width: 160px;     /* 👈 limit size */
-  padding: 0.5em 1em;   /* 👈 smaller padding */
-  font-size: 0.9rem;    /* 👈 smaller text */
-  text-align: center;
+    width: auto;
+    min-width: 110px;
+    max-width: 160px;
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
-
-.hero-buttons .primary-btn {
-  background-color: #0a7b83;
-  color: #fff;
-}
-
-.hero-buttons .primary-btn:hover {
-  background-color: #08646a;
-}
-
-.hero-buttons .secondary-btn {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #0a7b83;
-}
-
-.hero-buttons .secondary-btn:hover {
-  background-color: rgba(10, 123, 131, 0.1);
-}
-
-
-}
-
-
-
-/* Ultra-micro increments for mobile */
-@media (max-width: 900px) {
-  .text-increase p span {
-    display: block;
-    line-height: 1;   /* even tighter */
-    margin-bottom: 0;
-    padding: 0;
-  }
-
-  /* Start at 1rem, increase by only 0.004rem per line */
-  .text-increase p span:nth-child(1)  { font-size: 1rem; }
-  .text-increase p span:nth-child(2)  { font-size: 1rem; }
-  .text-increase p span:nth-child(3)  { font-size: 1rem; }
-  .text-increase p span:nth-child(4)  { font-size: 1.008rem; }
-  .text-increase p span:nth-child(5)  { font-size: 1.009rem; }
-  .text-increase p span:nth-child(6)  { font-size: 1.012rem; }
-  .text-increase p span:nth-child(7)  { font-size: 1.014rem; }
-  .text-increase p span:nth-child(8)  { font-size: 1.016rem; }
-  .text-increase p span:nth-child(9)  { font-size: 1.020rem; }
-  .text-increase p span:nth-child(10) { font-size: 1.021rem; }
-  .text-increase p span:nth-child(11) { font-size: 1.022rem; }
-  .text-increase p span:nth-child(12) { font-size: 1.024rem; }
-  .text-increase p span:nth-child(13) { font-size: 1.026rem; }
-}
-
-
-/* Mobile: stack columns */
-@media (max-width: 900px) {
+  /* ================= SIDE BY SIDE ================= */
   .side-by-side {
     flex-direction: column-reverse;
     align-items: center;
-    margin: 50px auto; /* auto left/right centers the whole container */
+    margin: 50px auto;
     gap: 30px;
-    width: 100%;   /* optional: prevents it from stretching too wide */
+    width: 100%;
   }
 
+  .left-content,
+  .right-image {
+    width: 100%;
+    padding: 0 15px;
+  }
 
-.left-content,
-.right-image {
-  padding: 0 15px; /* small horizontal padding */
-  width: 100%; 
-}
-
-
-.left-content h2 {
-  font-size: 2rem;
-  margin-right: 47px;
-
-}
-
+  .left-content h2 {
+    font-size: 2rem;
+    margin-right: 0;
+  }
 
   .right-image img {
     width: 100%;
-    max-width: 400px;              /* prevent image from being too large */
+    max-width: 400px;
     height: auto;
   }
 
-.side-buttons {
-  display: flex;          /* needed for justify-content and gap */
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.side-buttons .btn {
-       width: auto;
-  min-width: 110px;     /* 👈 smaller width */
-  max-width: 160px;     /* 👈 limit size */
-  padding: 0.5em 1em;   /* 👈 smaller padding */
-  font-size: 0.9rem;    /* 👈 smaller text */
-  text-align: center;
-}
-}
-
-      /* FAQ Section Mobile */
-@media (max-width: 900px) {
-
-  .faq-section {
-    max-width: 95%;
-    margin: 40px auto;
-    padding: 0 12px;
-    text-align: right;
-  }
-
-  .faq-item {
-    margin-bottom: 14px;
-  }
-
-  .faq-question {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    padding: 10px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .side-buttons {
+    justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
   }
 
-  .faq-arrow {
-    width: 12px;
-    height: 12px;
-    min-width: 12px;
-    transform-origin: center;
-  }
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;     /* hides any peeking content */
-  padding: 0 12px;      /* remove vertical padding */
-  transition: max-height 0.4s ease;
-}
-
-/* When open – add vertical padding only when expanded */
-.faq-answer.open {
-  padding: 12px;
-}
-
-
-  .faq-answer p {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-}
-
-
-
-
-/* Mobile behavior */
-@media (max-width: 768px) {
-  .background-video {
-    display: none;
+  .side-buttons .btn {
+    width: auto;
+    min-width: 110px;
+    max-width: 160px;
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
   }
 
-  .hero-overlay {
-   width: min(95%, 1000px);
-}
-
-.hero-title {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-}
-
-.hero-subtitle {
-  font-size: clamp(1rem, 3vw, 1.3rem);
-}
-
-
-
-  .mobile-hero-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  transform: scale(1.5);
-  transform-origin: center top;
-}
-
-
-  .fact-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
-
-  .fact-number {
-    font-size: 100px;
-    min-width: auto;
-  }
-
-  .fact-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-}
-
-
-
-@media (max-width: 900px) {
-
+  /* ================= ARTICLE FLOW ================= */
   .article-flow {
     flex-direction: column;
     gap: 20px;
     padding: 0 20px;
-    margin-top: 0; /* cleaner */
     text-align: right;
   }
 
-  /* Text first */
   .article-flow .article-text {
     order: 1;
   }
 
-  /* Image second */
   .article-flow .article-image {
     order: 2;
-    flex: none;          /* no fixed width on mobile */
-    width: 100%;         /* make image full width */
-    margin: 0 auto;      /* center it */
+    width: 100%;
+    flex: none;
   }
 
   .article-flow .article-image img {
-    width: 100%;         /* fully responsive */
+    width: 100%;
   }
 
-     .article-text .compact-list p {
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-    margin: 3px 0 !important;
-    text-align: right;
+  /* ================= FAQ ================= */
+  .faq-section {
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 0 12px;
   }
 
-  .article-text .compact-list p strong {
-    font-size: 1.1rem !important;
-    margin-bottom: 4px;
-  }
-}
-
-
-
-/* --- Mobile Footer --- */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start; /* logo first, social pushed by margin-left:auto */
-    padding: 10px;
-    gap: 10px;
-    direction: ltr; /* keep logo left / social right */
-  }
-
-  .footer-left {
-    flex: 1;
-  }
-
-  .footer-logo img {
-    width: 200px;
-    height: auto;
-  }
-
-  .footer-social {
-    margin-left: auto;
-    gap: 8px;
-  }
-
-  .footer-bottom {
-    flex-direction: row;
+  .faq-question {
+    font-size: 1.2rem;
+    padding: 10px 14px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
-    font-size: 0.8rem;
-    direction: ltr; /* links left, note right */
   }
 
-  .footer-links {
-    gap: 10px;
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 12px;
+    transition: max-height 0.4s ease;
   }
 
-  .footer-links a {
-    font-size: 0.8rem;
-    white-space: nowrap;
-  }
-
-  .footer-note {
-    font-size: 0.8rem;
+  .faq-answer.open {
+    padding: 12px;
   }
 }
 
-/* --- Mobile Footer --- */
+/* ================= SMALL MOBILE (768px) ================= */
 @media (max-width: 768px) {
-  .site-footer {
-    padding: 5px 10px;
+
+  .background-video {
+    display: none;
   }
 
-  .footer-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* logo left, social right */
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
+  .mobile-hero-image {
+    display: block;
   }
 
-  .footer-left {
-    flex: 1;
+  .fact-item {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .footer-logo img {
-    width: 200px;
-    height: auto;
+  .fact-number {
+    font-size: 100px;
   }
 
-  .footer-social {
-    flex: 1;
-    justify-content: flex-end;
-    gap: 8px;
-  }
-
-  .footer-social a i {
-    font-size: 16px;
-  }
-
-  .footer-divider {
-    height: 1px;
-    width: 100%;
-    background: #ccc;
-    margin: 5px 0;
-  }
-
-  .footer-bottom {
-    flex-direction: row;
-    justify-content: space-between; /* links left, note right */
-    align-items: center;
-    padding: 0 10px;
-    font-size: 0.8rem;
-  }
-
-  .footer-links {
-    gap: 10px;
-  }
-
-  .footer-links a {
-    font-size: 0.8rem;
-    white-space: nowrap;
-  }
-
-  .footer-note {
-    font-size: 0.8rem;
+  .fact-text p {
+    font-size: 1.1rem;
   }
 }
 
-
+/* ================= TEXT INCREASE (SAFE) ================= */
+@media (max-width: 900px) {
+  .text-increase p span {
+    display: block;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+}
