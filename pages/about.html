@@ -312,6 +312,26 @@
         font-size: 1.05rem;
       }
     }
+
+    /* Default (desktop) */
+.mobile-image {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .about-video-section video {
+    display: none;
+  }
+
+  .mobile-image {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}
   </style>
 </head>
 <body>

@@ -1124,7 +1124,7 @@ body.spacing-mode * {
   /* Hero Overlay: center content */
 .hero-overlay {
   position: absolute;
-  top: 40%;
+  top: 55%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -1145,7 +1145,7 @@ body.spacing-mode * {
 
   /* Hero Title: wider and responsive */
   .hero-title {
-    margin-top: 60px;
+    margin-top: 70px;
     font-size: 8vw;          /* scales with viewport width */
     font-weight: 700;
     line-height: 1.2;
@@ -1345,7 +1345,7 @@ body.spacing-mode * {
   }
 
   .hero-overlay {
-  width: min(90%, 500px);
+   width: min(95%, 1000px);
 }
 
 .hero-title {
@@ -1358,12 +1358,13 @@ body.spacing-mode * {
 
 
 
-
   .mobile-hero-image {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.5);
+  transform-origin: center top;
+}
 
 
   .fact-item {
