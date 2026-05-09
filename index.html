@@ -13,7 +13,7 @@
 <!-- Place this at the top of <body> -->
 <div id="navbar"></div>
 <script>
-  fetch('./base/navbar.html')
+  fetch('base/navbar.html')
     .then(response => response.text())
     .then(data => { document.getElementById('navbar').innerHTML = data; });
 </script>
@@ -30,7 +30,7 @@
   playsinline 
   class="background-video"
   poster="assets/girlSwingingImage.webp"
-  preload="none">
+  preload="metadata">
 
   <source src="assets/girlSwinging.webm" type="video/webm" />
   <source src="assets/girlSwinging.mp4" type="video/mp4" />
@@ -48,7 +48,7 @@
     <p class="hero-subtitle">בדגש על אלימות ונרקיסיזם</p>
     <div class="hero-buttons">
       <a href="#law" class="btn primary-btn">קראו את החוק</a>
-      <a href="./pages/about.html" class="btn secondary-btn">תרמו עכשיו</a>
+      <a href="pages/about.html" class="btn secondary-btn">תרמו עכשיו</a>
     </div>
   </div>
 
@@ -387,13 +387,13 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // Load footer
-    fetch('./base/footer.html')
+    fetch('base/footer.html')
       .then(response => response.text())
       .then(data => { document.getElementById('footer').innerHTML = data; });
 
 
 // Load accessibility overlay dynamically
-fetch("./base/accessibility.html")
+fetch("base/accessibility.html")
   .then(res => res.text())
   .then(data => {
     document.body.insertAdjacentHTML("beforeend", data);
@@ -422,7 +422,7 @@ if (video && window.innerWidth > 768) {
 
 });
 </script>
-<script type="module" src="./script.js"></script> 
+<script type="module" src="script.js"></script> 
 
 
 
