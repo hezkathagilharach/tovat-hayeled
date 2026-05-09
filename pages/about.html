@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>אודות - חזקת הגיל הרך = טובת הילד</title>
+
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  
   <style>
     /* ===== About Page Specific Styles ===== */
     main {
@@ -15,7 +16,6 @@
       padding: 20px 15px;
     }
 
-    /* About Header */
     .about-header {
       display: flex;
       justify-content: space-between;
@@ -68,7 +68,6 @@
       opacity: 1;
     }
 
-    /* Hero Buttons */
     .btn {
       display: inline-flex;
       justify-content: center;
@@ -111,7 +110,6 @@
       transform: translateY(-3px);
     }
 
-    /* Video Section */
     .about-video-section {
       position: relative;
       margin: 60px 0;
@@ -153,7 +151,6 @@
       color: #0a7b83;
     }
 
-    /* Contact Section */
     .contact-us {
       max-width: 1100px;
       margin: 40px auto 60px auto;
@@ -177,7 +174,6 @@
       color: #444;
     }
 
-    /* Reveal Animations */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -189,7 +185,6 @@
       transform: translateY(0);
     }
 
-    /* Better World Section */
     .better-world {
       max-width: 1100px;
       margin: 60px auto;
@@ -212,7 +207,6 @@
       color: #444;
     }
 
-
     .better-world ul {
       padding-right: 35px;
       margin: 0;
@@ -226,11 +220,10 @@
     }
 
     .dark-mode p,
-.dark-mode li {
-  color: #e0e0e0 !important;
-}
+    .dark-mode li {
+      color: #e0e0e0 !important;
+    }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .about-header {
         flex-direction: column-reverse;
@@ -245,27 +238,10 @@
         padding-right: 6px;
       }
 
-      .about-header .text p {
-        font-size: 1.2rem;
-        line-height: 1.6;
-        margin-bottom: 12px;
-      }
-
       .about-header .image {
         width: 180px;
         height: 180px;
         margin-bottom: 10px;
-      }
-
-      .about-hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 200px;
       }
 
       .about-video-section .overlay {
@@ -274,76 +250,34 @@
         padding: 0 10px;
       }
 
-      .about-video-section .overlay .item i {
-        font-size: 1.5em;
+      .about-video-section video {
+        display: none;
       }
 
-      .about-video-section .overlay .item h3 {
-        font-size: 1rem;
-      }
-
-      .contact-us h2 {
-        font-size: 2.5rem;
-        margin: 0 0 15px 0;
-        padding-right: 6px;
-      }
-
-      .contact-us p {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-      }
-
-      .contact-us a {
-        display: inline-block;
-        margin-top: 10px;
-      }
-
-      .better-world h1 {
-        font-size: 2.5rem;
-        margin: 0 0 20px 0;
-        padding-right: 6px;
-      }
-
-      .better-world p {
-        font-size: 1.2rem;
-      }
-
-      .better-world li {
-        font-size: 1.05rem;
+      .mobile-image {
+        display: block;
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
       }
     }
 
-    /* Default (desktop) */
-.mobile-image {
-  display: none;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-  .about-video-section video {
-    display: none;
-  }
-
-  .mobile-image {
-    display: block;
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-}
+    .mobile-image {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar Placeholder -->
   <div id="navbar"></div>
 
- <main tabindex="-1" id="main-content">
+  <main tabindex="-1" id="main-content">
     <!-- About Header -->
     <section class="about-header reveal">
       <div id="about-text" class="text">
         <h1>אודות</h1>
-        <p>עמותת חזקת הגיל הרך = טובת הילד (ע"ר) נוסדה בשנת 2023 על ידי אמהות שורדות אלימות ונרקיסיזם במשפחה, מתוך צורך עמוק להעלות מודעות לפגיעה הנגרמת לתינוקות וילדים בגיל הרך כאשר הם נלקחים מביתם ומורחקים בכפייה מאמם (המטפל העיקרי והמקום הבטוח שלהם) לאורך זמן. מטרתנו לפעול למען חיזוק ואכיפת חוק חזקת הגיל הרך, בדגש על מצבים של אלימות ונרקיסיזם.</p>
+        <p>עמותת חזקת הגיל הרך = טובת הילד (ע"ר) נוסדה בשנת 2023 על ידי אמהות שורדות אלימות ונרקיסיזם במשפחה, מתוך צורך עמוק להעלות מודעות לפגיעה הנגרמת לתינוקות וילדים בגיל הרך כאשר הם נלקחים מביתם ומורחקים בכפייה מאמם (המטפל העיקרי והמקום הבטוח שלהם) לאורך זמן.</p>
         <div class="about-hero-buttons">
           <a href="https://www.atzuma.co.il/momsnotsilent" class="btn primary-btn" target="_blank">חתמו על העצומה</a>
           <a href="#" class="btn secondary-btn">תרמו עכשיו</a>
@@ -360,63 +294,25 @@
       <h1>עולם טוב יותר</h1>
       <p>העמותה פועלת לקידום חקיקה להגנה על נשים וילדים בנושאים הבאים:</p>
       <ul>
-      <li>
-      חוק להפרדה בין מזונות למשמורת, לצורך מניעת תלות כלכלית והשפעה בלתי הוגנת על הסדרי הורות
-    </li>
-
-    <li>
-      חוק להגנה על נשים בהריון ולאחר לידה, כולל מניעת פגיעה תעסוקתית, כלכלית והורית בתקופה זו
-    </li>
-
-    <li>
-      חוק להגדרה ואכיפה של אלימות במשפחה, לרבות אלימות פיזית, רגשית, כלכלית ודפוסי שליטה מתמשכים
-    </li>
-
-    <li>
-      חוק למניעת פגיעה בקשר בין ילד להורה, תוך הבחנה בין מצבים של סיכון או אלימות לבין מניעה בלתי מוצדקת של קשר
-    </li>
-
-    <li>
-      חוק להגברת שקיפות בהליכי בתי המשפט למשפחה, תוך איזון בין פרטיות הצדדים לבין אינטרס ציבורי
-    </li>
-
-    <li>
-      חוק לחובת תיעוד והקלטת כלל הדיונים בבתי המשפט למשפחה, לצורך הבטחת שקיפות, בקרה והוגנות ההליך
-    </li>
-
-    <li>
-      חוק חופשת לידה לאמהות עד גיל שנה, תוך בחינת איזון בין טובת הילד, רווחת המשפחה והשלכות כלכליות
-    </li>
-
-    <li>
-      פיתוח כלים מקצועיים אחידים לבתי המשפט להערכת פגיעה רגשית, שליטה מתמשכת וסיכון לילדים,
-      בשיתוף גורמים אקדמיים ומקצועיים
-    </li>
+        <li>חוק להפרדה בין מזונות למשמורת, לצורך מניעת תלות כלכלית.</li>
+        <li>חוק להגנה על נשים בהריון ולאחר לידה.</li>
+        <li>חוק להגדרה ואכיפה של אלימות במשפחה.</li>
+        <li>חוק למניעת פגיעה בקשר בין ילד להורה.</li>
+        <li>חוק להגברת שקיפות בהליכי בתי המשפט למשפחה.</li>
+        <li>חוק לחובת תיעוד והקלטת כלל הדיונים.</li>
+        <li>חוק חופשת לידה לאמהות עד גיל שנה.</li>
+        <li>פיתוח כלים מקצועיים להערכת פגיעה רגשית.</li>
       </ul>
     </section>
 
     <!-- Video Section -->
     <section class="about-video-section reveal">
-          <video 
-              autoplay 
-              muted 
-              loop 
-              playsinline 
-              preload="none"
-              poster="../assets/swingingKids.webp"
-              class="background-video">
-
-              <source src="../assets/kidsSwinging.webm" type="video/webm">
-              <source src="../assets/kidsSwinging.mp4" type="video/mp4">
-
-              הדפדפן שלך אינו תומך בנגן וידאו.
+      <video autoplay muted loop playsinline preload="none" poster="../assets/swingingKids.webp" class="background-video">
+        <source src="../assets/kidsSwinging.webm" type="video/webm">
+        <source src="../assets/kidsSwinging.mp4" type="video/mp4">
+        הדפדפן שלך אינו תומך בנגן וידאו.
       </video>
-<img 
-  src="../assets/swingingKids.webp"
-  class="mobile-image"
-  alt=""
-/>
-
+      <img src="../assets/swingingKids.webp" class="mobile-image" alt="Swinging Kids">
 
       <div class="overlay">
         <div class="item"><i class="fas fa-hand-holding-heart"></i><h3>הגנת ילדים</h3></div>
@@ -430,22 +326,20 @@
     <section id="contact" class="contact-us reveal">
       <h2>צור קשר</h2>
       <p>נשמח לשמוע ממך! נענה לפנייתך בהקדם האפשרי.</p>
-      <p>לכל שאלה או פנייה:  <a href="mailto:hezkathagilharach@gmail.com">hezkathagilharach@gmail.com</a></p>
+      <p>לכל שאלה או פנייה: <a href="mailto:hezkathagilharach@gmail.com">hezkathagilharach@gmail.com</a></p>
     </section>
   </main>
 
-  <!-- Accessibility Placeholder -->
+  <!-- Placeholders -->
   <div id="accessibility-placeholder"></div>
-
-  <!-- Footer -->
   <div id="footer"></div>
 
   <script type="module" src="../script.js"></script>
   <script>
-    // Load Navbar, Footer, Accessibility overlay
     document.addEventListener("DOMContentLoaded", function() {
       fetch("../base/navbar.html").then(res => res.text())
         .then(data => document.getElementById("navbar").innerHTML = data);
+
       fetch("../base/footer.html").then(res => res.text())
         .then(data => document.getElementById("footer").innerHTML = data);
 
@@ -453,9 +347,7 @@
         .then(data => {
           document.body.insertAdjacentHTML("beforeend", data);
           if (window.initAccessibility) window.initAccessibility();
-        }).catch(err => console.error("Accessibility load error:", err));
-
-
+        }).catch(err => console.error("Accessibility error:", err));
 
       // Reveal animations
       const reveals = document.querySelectorAll(".reveal");
@@ -469,13 +361,12 @@
       }, { threshold: 0.1 });
       reveals.forEach(r => observer.observe(r));
 
-      // Donate button popup
+      // Donate popup
       const donateBtn = document.querySelector(".btn.secondary-btn");
       donateBtn?.addEventListener("click", e => {
         e.preventDefault();
         alert("תודה על רצונך לתרום! ❤️ חשבון בנק לתרומות יתווסף בקרוב");
       });
-      
     });
   </script>
 </body>
