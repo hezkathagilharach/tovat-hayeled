@@ -334,40 +334,43 @@
   <div id="accessibility-placeholder"></div>
   <div id="footer"></div>
 
-  <script type="module" src="../script.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      fetch("../base/navbar.html").then(res => res.text())
-        .then(data => document.getElementById("navbar").innerHTML = data);
-
-      fetch("../base/footer.html").then(res => res.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
-
-      fetch("../base/accessibility.html").then(res => res.text())
-        .then(data => {
-          document.body.insertAdjacentHTML("beforeend", data);
-          if (window.initAccessibility) window.initAccessibility();
-        }).catch(err => console.error("Accessibility error:", err));
-
-      // Reveal animations
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      reveals.forEach(r => observer.observe(r));
-
-      // Donate popup
-      const donateBtn = document.querySelector(".btn.secondary-btn");
-      donateBtn?.addEventListener("click", e => {
-        e.preventDefault();
-        alert("תודה על רצונך לתרום! ❤️ חשבון בנק לתרומות יתווסף בקרוב");
+ <script type="module" src="../script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("../base/navbar.html").then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        if (window.fixNavbarPaths) window.fixNavbarPaths();
       });
+
+    fetch("../base/footer.html").then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+
+    fetch("../base/accessibility.html").then(res => res.text())
+      .then(data => {
+        document.body.insertAdjacentHTML("beforeend", data);
+        if (window.initAccessibility) window.initAccessibility();
+      }).catch(err => console.error("Accessibility error:", err));
+
+    // Reveal animations
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Donate popup
+    const donateBtn = document.querySelector(".btn.secondary-btn");
+    donateBtn?.addEventListener("click", e => {
+      e.preventDefault();
+      alert("תודה על רצונך לתרום! ❤️ חשבון בנק לתרומות יתווסף בקרוב");
     });
-  </script>
+  });
+</script>
 </body>
 </html>

@@ -340,36 +340,35 @@
 
  <script type="module" src="../script.js"></script>
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("../base/navbar.html").then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        if (window.fixNavbarPaths) window.fixNavbarPaths();
+      });
 
-  // Load Navbar, Footer, Accessibility overlay
-    document.addEventListener("DOMContentLoaded", function() {
-      fetch("../base/navbar.html").then(res => res.text())
-        .then(data => document.getElementById("navbar").innerHTML = data);
-      fetch("../base/footer.html").then(res => res.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
+    fetch("../base/footer.html").then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
 
-      fetch("../base/accessibility.html").then(res => res.text())
-        .then(data => {
-          document.body.insertAdjacentHTML("beforeend", data);
-          if (window.initAccessibility) window.initAccessibility();
-        }).catch(err => console.error("Accessibility load error:", err));
+    fetch("../base/accessibility.html").then(res => res.text())
+      .then(data => {
+        document.body.insertAdjacentHTML("beforeend", data);
+        if (window.initAccessibility) window.initAccessibility();
+      }).catch(err => console.error("Accessibility load error:", err));
 
-
-  // Reveal animation
-  const reveals = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.1});
-  reveals.forEach(r => observer.observe(r));
-});
+    // Reveal animation
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  });
 </script>
-
-
 
 
 </body>

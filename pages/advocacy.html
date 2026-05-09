@@ -935,53 +935,58 @@
 
   <div id="footer" ></div>
  <script type="module" src="../script.js"></script>
- <script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("../base/navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        if (window.fixNavbarPaths) window.fixNavbarPaths();
+      });
 
-   // Fetch navbar and footer
-    document.addEventListener("DOMContentLoaded", function() {
-      fetch("../base/navbar.html")
-        .then(res => res.text())
-        .then(data => document.getElementById("navbar").innerHTML = data);
+    fetch("../base/footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
 
-      fetch("../base/footer.html")
-        .then(res => res.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
+    fetch("../base/accessibility.html")
+      .then(res => res.text())
+      .then(data => {
+        document.body.insertAdjacentHTML("beforeend", data);
+        if (window.initAccessibility) window.initAccessibility();
+      })
+      .catch(err => console.error("Accessibility load error:", err));
 
-// Load accessibility overlay dynamically
-fetch("../base/accessibility.html")
-  .then(res => res.text())
-  .then(data => {
-    document.body.insertAdjacentHTML("beforeend", data);
-    initAccessibility();
-  })
-  .catch(err => console.error("Accessibility load error:", err));
-
-
-
-
-    });
-
-    // Filter by tab
-    function filterTabs(event) {
-      const type = event.target.getAttribute('data-type');
-      document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      document.querySelectorAll('.media-card-link').forEach(link => {
-        const card = link.querySelector('.media-card');
-        if(type === 'all' || card.classList.contains(type)) {
-          link.style.display = 'block';
-        } else {
-          link.style.display = 'none';
+    // Reveal animation
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  });
 
-    // Search cards
+  // Filter by tab
+  function filterTabs(event) {
+    const type = event.target.getAttribute('data-type');
+    document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
 
+    document.querySelectorAll('.media-card-link').forEach(link => {
+      const card = link.querySelector('.media-card');
+      if (type === 'all' || card.classList.contains(type)) {
+        link.style.display = 'block';
+      } else {
+        link.style.display = 'none';
+      }
+    });
+  }
 
+  // Search cards
   const searchInput = document.getElementById('searchInput');
-
   searchInput.addEventListener('input', () => {
     const input = searchInput.value.toLowerCase();
 
@@ -997,23 +1002,7 @@ fetch("../base/accessibility.html")
       }
     });
   });
-
-
-// Reveal animation 
-function revealOnScroll() { 
-  const reveals = document.querySelectorAll('.reveal'); 
-  const observer = new IntersectionObserver(entries => { 
-    entries.forEach(entry => { 
-      if (entry.isIntersecting) { 
-        entry.target.classList.add('visible'); 
-        observer.unobserve(entry.target); 
-      } 
-    }); 
-  }, { threshold: 0.1 }); 
-  reveals.forEach(r => observer.observe(r)); } // Run after DOM loads 
-  document.addEventListener('DOMContentLoaded', revealOnScroll);
-    
-  </script>
+</script>
 
 
 

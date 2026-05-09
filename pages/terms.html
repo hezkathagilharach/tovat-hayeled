@@ -49,13 +49,7 @@
 
 <!-- Navbar -->
 <div id="navbar"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    fetch('../base/navbar.html')
-      .then(res => res.text())
-      .then(data => { document.getElementById('navbar').innerHTML = data; });
-  });
-</script>
+
 
 <!-- Terms Content -->
 <main class="terms-content" tabindex="-1" id="main-content">
@@ -110,29 +104,32 @@
 <!-- Footer -->
 <div id="footer"></div>
 
+<script src="../script.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Load footer
-    fetch('../base/footer.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('footer').innerHTML = data; });
+    fetch("../base/navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        if (window.fixNavbarPaths) window.fixNavbarPaths();
+      });
 
-   // Load accessibility overlay dynamically
-fetch("../base/accessibility.html")
-  .then(res => res.text())
-  .then(data => {
-    document.body.insertAdjacentHTML("beforeend", data);
-    initAccessibility();
-  })
-  .catch(err => console.error("Accessibility load error:", err));
+    fetch("../base/footer.html")
+      .then(res => res.text())
+      .then(data => { document.getElementById("footer").innerHTML = data; });
 
-
-
+    fetch("../base/accessibility.html")
+      .then(res => res.text())
+      .then(data => {
+        document.body.insertAdjacentHTML("beforeend", data);
+        if (window.initAccessibility) window.initAccessibility();
+      })
+      .catch(err => console.error("Accessibility load error:", err));
   });
 </script>
 
 
- <script src="../script.js"></script>
+ 
 
 
 

@@ -59,33 +59,29 @@
 
   <div id="footer"></div>
 
-  <script>
-    // Load shared navbar and footer dynamically
-    document.addEventListener("DOMContentLoaded", function() {
-      fetch("../base/navbar.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("navbar").innerHTML = data);
+<script src="../script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("../base/navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        if (window.fixNavbarPaths) window.fixNavbarPaths();
+      });
 
-      fetch("../base/footer.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
+    fetch("../base/footer.html")
+      .then(res => res.text())
+      .then(data => { document.getElementById("footer").innerHTML = data; });
 
-
-// Load accessibility overlay dynamically
-fetch("../base/accessibility.html")
-  .then(res => res.text())
-  .then(data => {
-    document.body.insertAdjacentHTML("beforeend", data);
-    initAccessibility();
-  })
-  .catch(err => console.error("Accessibility load error:", err));
-
-
-
-
-    });
-  </script>
- <script src="../script.js"></script>
+    fetch("../base/accessibility.html")
+      .then(res => res.text())
+      .then(data => {
+        document.body.insertAdjacentHTML("beforeend", data);
+        if (window.initAccessibility) window.initAccessibility();
+      })
+      .catch(err => console.error("Accessibility load error:", err));
+  });
+</script>
 
 
 </body>

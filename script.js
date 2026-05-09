@@ -1,11 +1,9 @@
 // -------------------------
 // Firebase Initialization
 // -------------------------
-// Browser-compatible Firebase imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-// Your Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyDesQHO95SuHJ-OPR1Wg-QgRfLDDoe9D54",
   authDomain: "hezkat-hagil-harach.firebaseapp.com",
@@ -15,12 +13,11 @@ const firebaseConfig = {
   appId: "1:251986465767:web:798e9d1990e47e971be342"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
 // -------------------------
-// Helper function: get file URL
+// Helper: get file URL from Firebase Storage
 // -------------------------
 async function getFileURL(path) {
   try {
@@ -34,6 +31,39 @@ async function getFileURL(path) {
 }
 
 // -------------------------
+// Helper: resolve asset base path
+// Works at root (index.html) and inside /pages/*.html
+// on localhost, Firebase, and GitHub Pages
+// -------------------------
+function getBasePath() {
+  return window.location.pathname.includes('/pages/') ? '../' : '';
+}
+
+// -------------------------
+// Fix Navbar Paths
+// Call this after injecting navbar HTML into the DOM.
+// navbar.html uses root-relative paths (no ../),
+// so pages inside /pages/ need them prefixed with ../
+// -------------------------
+function fixNavbarPaths() {
+  const base = getBasePath();
+  if (!base) return; // at root, paths are already correct
+
+  document.querySelectorAll('#navbar a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#')) {
+      a.setAttribute('href', base + href);
+    }
+  });
+
+  const logo = document.querySelector('#site-logo');
+  if (logo) logo.src = base + 'assets/logoTransparent.webp';
+}
+
+// expose so HTML fetch callbacks can call it
+window.fixNavbarPaths = fixNavbarPaths;
+
+// -------------------------
 // Load images from Firebase Storage
 // -------------------------
 document.addEventListener("DOMContentLoaded", async () => {
@@ -45,14 +75,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
       const url = await getFileURL(path);
-      if (url) img.src = url; // replace src with Firebase Storage URL
+      if (url) img.src = url;
     } catch (err) {
       console.error(`Failed to load image ${path}:`, err);
     }
   });
 });
 
+// -------------------------
 // Load videos from Firebase Storage
+// -------------------------
 const videos = document.querySelectorAll("video[data-firebase-path]");
 
 videos.forEach(async (video) => {
@@ -82,7 +114,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       window.scrollTo({
-        top: target.offsetTop - 70, // adjust for fixed navbar
+        top: target.offsetTop - 70,
         behavior: 'smooth'
       });
     }
@@ -100,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
 
-        // Typewriter effect for typewriter paragraph
         if (entry.target.id === "typewriter" && !entry.target.dataset.typed) {
           typeWriter(entry.target);
         }
@@ -115,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Typewriter Effect
 // -------------------------
 function typeWriter(container) {
-  if (container.dataset.typed) return; // prevent re-trigger
+  if (container.dataset.typed) return;
   container.dataset.typed = true;
 
   const sentences = [
@@ -190,8 +221,9 @@ document.addEventListener("click", function (e) {
     navLinks.classList.remove("active");
   }
 });
+
 // -------------------------
-// Accessibility Features (FINAL CLEAN VERSION)
+// Accessibility Features
 // -------------------------
 function initAccessibility() {
   const btn = document.getElementById("accessibility-btn");
@@ -201,9 +233,6 @@ function initAccessibility() {
     return console.error("Accessibility elements missing!");
   }
 
-  // -------------------------
-  // STATE (single source of truth)
-  // -------------------------
   let state = {
     scale: parseFloat(localStorage.getItem("fontScale")) || 1,
     contrast: localStorage.getItem("contrast") === "1",
@@ -219,10 +248,6 @@ function initAccessibility() {
 
   window.accessibilityState = state;
 
-  // -------------------------
-  // ONLY TOGGLE BUTTONS (IMPORTANT FIX)
-  // action buttons are NOT included here
-  // -------------------------
   const buttonMap = {
     contrast: "toggle-contrast",
     grayscale: "toggle-grayscale",
@@ -235,14 +260,10 @@ function initAccessibility() {
     motion: "toggle-motion",
   };
 
-  // -------------------------
-  // UPDATE ACTIVE BUTTONS (FIXED RELIABILITY)
-  // -------------------------
   const updateActiveButtons = () => {
     Object.entries(buttonMap).forEach(([key, id]) => {
       const el = document.getElementById(id);
       if (!el) return;
-
       if (state[key]) {
         el.classList.add("active");
       } else {
@@ -252,8 +273,26 @@ function initAccessibility() {
   };
 
   // -------------------------
-  // APPLY STATE → DOM
+  // LOGOS — uses getBasePath() so paths work on all environments
   // -------------------------
+  function updateLogos() {
+    const headerLogo = document.getElementById("site-logo");
+    const footerLogo = document.getElementById("site-footer-logo");
+
+    if (!headerLogo || !footerLogo) return;
+
+    const active = state.dark || state.contrast;
+    const base = getBasePath();
+
+    headerLogo.src = active
+      ? `${base}assets/goldLogoSmall.webp`
+      : `${base}assets/logoTransparent.webp`;
+
+    footerLogo.src = active
+      ? `${base}assets/logoGoldHorizontal.webp`
+      : `${base}assets/logoBlackHorizontal.webp`;
+  }
+
   const applyState = () => {
     document.documentElement.style.fontSize = `${16 * state.scale}px`;
 
@@ -272,14 +311,12 @@ function initAccessibility() {
     if (state.contrast) document.body.classList.add("high-contrast");
     if (state.dark) document.body.classList.add("dark-mode");
     if (state.grayscale) document.body.classList.add("grayscale");
-
     if (state.underline) document.body.classList.add("underline-links");
     if (state.reading) document.body.classList.add("reading-mode");
     if (state.focus) document.body.classList.add("focus-mode");
     if (state.dyslexia) document.body.classList.add("dyslexia-mode");
     if (state.spacing) document.body.classList.add("spacing-mode");
 
-    // motion
     if (state.motion) {
       document.body.classList.add("reduce-motion");
       document.querySelectorAll("video").forEach(v => v.pause());
@@ -289,9 +326,6 @@ function initAccessibility() {
     updateActiveButtons();
   };
 
-  // -------------------------
-  // SAVE STATE
-  // -------------------------
   const saveState = () => {
     localStorage.setItem("fontScale", state.scale);
     localStorage.setItem("contrast", state.contrast ? "1" : "0");
@@ -305,12 +339,8 @@ function initAccessibility() {
     localStorage.setItem("motion", state.motion ? "1" : "0");
   };
 
-  // initial render
   applyState();
 
-  // -------------------------
-  // PANEL CONTROL
-  // -------------------------
   const openPanel = () => {
     panel.classList.add("open");
     panel.setAttribute("aria-hidden", "false");
@@ -338,9 +368,6 @@ function initAccessibility() {
     }
   });
 
-  // -------------------------
-  // TEXT SIZE (ACTION BUTTONS - NO ACTIVE STATE EXPECTED)
-  // -------------------------
   document.getElementById("increase-text")?.addEventListener("click", () => {
     state.scale = Math.min(1.6, state.scale + 0.1);
     saveState();
@@ -353,9 +380,6 @@ function initAccessibility() {
     applyState();
   });
 
-  // -------------------------
-  // TOGGLE SYSTEM
-  // -------------------------
   const toggle = (key) => {
     if (!(key in state)) return;
 
@@ -363,7 +387,6 @@ function initAccessibility() {
 
     if (visualModes.includes(key)) {
       const enable = !state[key];
-
       visualModes.forEach(m => (state[m] = false));
       if (enable) state[key] = true;
     } else {
@@ -374,18 +397,12 @@ function initAccessibility() {
     applyState();
   };
 
-  // -------------------------
-  // TOGGLE EVENTS
-  // -------------------------
   Object.entries(buttonMap).forEach(([key, id]) => {
     document.getElementById(id)?.addEventListener("click", () => {
       toggle(key);
     });
   });
 
-  // -------------------------
-  // RESET (ACTION BUTTON - NO ACTIVE STATE)
-  // -------------------------
   document.getElementById("reset-accessibility")?.addEventListener("click", () => {
     state = {
       scale: 1,
@@ -404,34 +421,10 @@ function initAccessibility() {
     applyState();
   });
 
-  // -------------------------
-  // LOGOS
-  // -------------------------
-  function updateLogos() {
-    const headerLogo = document.getElementById("site-logo");
-    const footerLogo = document.getElementById("site-footer-logo");
-
-    if (!headerLogo || !footerLogo) return;
-
-    const active = state.dark || state.contrast;
-
-    headerLogo.src = active
-      ? "/assets/goldLogoSmall.webp"
-      : "/assets/logoTransparent.webp";
-
-    footerLogo.src = active
-      ? "/assets/logoGoldHorizontal.webp"
-      : "/assets/logoBlackHorizontal.webp";
-  }
-
-  // -------------------------
-  // TEXT TO SPEECH (ACTION BUTTONS)
-  // -------------------------
   document.getElementById("read-page")?.addEventListener("click", () => {
     const speech = new SpeechSynthesisUtterance(document.body.innerText);
     speech.lang = "he-IL";
     speech.rate = 1;
-
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(speech);
   });
@@ -441,5 +434,4 @@ function initAccessibility() {
   });
 }
 
-// expose globally
 window.initAccessibility = initAccessibility;
