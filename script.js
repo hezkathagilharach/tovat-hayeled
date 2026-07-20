@@ -289,8 +289,8 @@ function initAccessibility() {
       : `${base}assets/logoTransparent.webp`;
 
     footerLogo.src = active
-      ? `${base}assets/logoGoldHorizontal.webp`
-      : `${base}assets/logoBlackHorizontal.webp`;
+      ? `${base}assets/horizontalLogoWhiteTextTransparent.webp`
+      : `${base}assets/horizontalLogoBlackTextTransparent.webp`;
   }
 
   const applyState = () => {
